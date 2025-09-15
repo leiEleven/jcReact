@@ -67,8 +67,11 @@ class User extends React.Component {
         return (
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                    <div className="logo" />
-                    
+                    <div className="siderName">
+                        <span>
+                            今创后台管理系统
+                        </span>
+                    </div>
                     <Menu onClick={this.menuClick} theme="dark" defaultOpenKeys={defaultOpenKeys} selectedKeys={[path]} mode="inline">
                         {
                             getMenuItem(permissionList)

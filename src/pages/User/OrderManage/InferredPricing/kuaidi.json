@@ -1,0 +1,117 @@
+[
+  {
+    "id": "JP",
+    "name": "日本",
+    "currency": "JPY",
+    "symbol": "¥",
+    "children": [
+      {
+        "id": "030",
+        "styleName": "普货",
+        "fee": "[{\"perParcel\":530.0,\"perKg\":200.0,\"max\":1.0,\"min\":0.0},{\"perParcel\":520.0,\"perKg\":240.0,\"max\":2.0,\"min\":1.0},{\"perParcel\":510.0,\"perKg\":290.0,\"max\":5.0,\"min\":2.0},{\"perParcel\":500.0,\"perKg\":295.0,\"max\":10.0,\"min\":5.0},{\"perParcel\":500.0,\"perKg\":320.0,\"max\":20.0,\"min\":10.0},{\"perParcel\":500.0,\"perKg\":325.0,\"max\":30.0,\"min\":20.0}]"
+      },
+      {
+        "id": "031",
+        "styleName": "特货",
+        "fee": "[{\"perParcel\":535.0,\"perKg\":330.0,\"max\":1.0,\"min\":0.0},{\"perParcel\":520.0,\"perKg\":435.0,\"max\":2.0,\"min\":1.0},{\"perParcel\":510.0,\"perKg\":440.0,\"max\":5.0,\"min\":2.0},{\"perParcel\":500.0,\"perKg\":465.0,\"max\":10.0,\"min\":5.0},{\"perParcel\":500.0,\"perKg\":505.0,\"max\":20.0,\"min\":10.0},{\"perParcel\":500.0,\"perKg\":505.0,\"max\":30.0,\"min\":20.0}]"
+      },
+      {
+        "id": "032",
+        "styleName": "敏货",
+        "fee": "[{\"perParcel\":535.0,\"perKg\":330.0,\"max\":1.0,\"min\":0.0},{\"perParcel\":520.0,\"perKg\":435.0,\"max\":2.0,\"min\":1.0},{\"perParcel\":510.0,\"perKg\":440.0,\"max\":5.0,\"min\":2.0},{\"perParcel\":500.0,\"perKg\":465.0,\"max\":10.0,\"min\":5.0},{\"perParcel\":500.0,\"perKg\":505.0,\"max\":20.0,\"min\":10.0},{\"perParcel\":500.0,\"perKg\":505.0,\"max\":30.0,\"min\":20.0}]"
+      }
+    ]
+  },
+  {
+    "id": "FR",
+    "name": "法国",
+    "currency": "EUR",
+    "symbol": "€",
+    "children": [
+      {
+        "id": "010",
+        "styleName": "普货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":4.1,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.3,\"perKg\":4.35,\"max\":1.0,\"min\":0.5},{\"perParcel\":3.3,\"perKg\":4.35,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.3,\"perKg\":4.35,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "011",
+        "styleName": "特货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":5.0,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.3,\"perKg\":5.2,\"max\":1.0,\"min\":0.5},{\"perParcel\":3.3,\"perKg\":5.2,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.3,\"perKg\":5.2,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "012",
+        "styleName": "敏货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":5.8,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.3,\"perKg\":5.8,\"max\":1.0,\"min\":0.5},{\"perParcel\":3.3,\"perKg\":5.8,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.3,\"perKg\":5.8,\"max\":30.0,\"min\":3.0}]"
+      }
+    ]
+  },
+  {
+    "id": "DE",
+    "name": "德国",
+    "currency": "EUR",
+    "symbol": "€",
+    "children": [
+      {
+        "id": "020",
+        "styleName": "普货",
+        "fee": "[{\"perParcel\":3.1,\"perKg\":3.6,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.0,\"perKg\":3.9,\"max\":1.0,\"min\":0.5},{\"perParcel\":2.9,\"perKg\":3.9,\"max\":3.0,\"min\":1.0},{\"perParcel\":2.9,\"perKg\":3.9,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "021",
+        "styleName": "特货",
+        "fee": "[{\"perParcel\":3.0,\"perKg\":4.7,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.0,\"perKg\":4.7,\"max\":1.0,\"min\":0.5},{\"perParcel\":3.0,\"perKg\":4.7,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.0,\"perKg\":4.7,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "022",
+        "styleName": "敏货",
+        "fee": "[{\"perParcel\":3.1,\"perKg\":5.1,\"max\":0.5,\"min\":0.0},{\"perParcel\":3.1,\"perKg\":5.2,\"max\":1.0,\"min\":0.5},{\"perParcel\":3.0,\"perKg\":5.3,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.0,\"perKg\":5.3,\"max\":30.0,\"min\":3.0}]"
+      }
+    ]
+  },
+  {
+    "id": "ES",
+    "name": "西班牙",
+    "currency": "EUR",
+    "symbol": "€",
+    "children": [
+      {
+        "id": "040",
+        "styleName": "普货",
+        "fee": "[{\"perParcel\":2.4,\"perKg\":5.5,\"max\":0.35,\"min\":0.0},{\"perParcel\":2.5,\"perKg\":5.7,\"max\":1.0,\"min\":0.35},{\"perParcel\":2.4,\"perKg\":5.8,\"max\":3.0,\"min\":1.0},{\"perParcel\":2.4,\"perKg\":5.8,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "041",
+        "styleName": "特货",
+        "fee": "[{\"perParcel\":2.7,\"perKg\":5.8,\"max\":0.35,\"min\":0.0},{\"perParcel\":2.9,\"perKg\":5.4,\"max\":1.0,\"min\":0.35},{\"perParcel\":2.9,\"perKg\":5.5,\"max\":3.0,\"min\":1.0},{\"perParcel\":2.9,\"perKg\":5.5,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "042",
+        "styleName": "敏货",
+        "fee": "[{\"perParcel\":2.9,\"perKg\":6.1,\"max\":0.35,\"min\":0.0},{\"perParcel\":2.8,\"perKg\":6.2,\"max\":1.0,\"min\":0.35},{\"perParcel\":2.8,\"perKg\":6.2,\"max\":3.0,\"min\":1.0},{\"perParcel\":2.8,\"perKg\":6.2,\"max\":30.0,\"min\":3.0}]"
+      }
+    ]
+  },
+  {
+    "id": "IT",
+    "name": "意大利",
+    "currency": "EUR",
+    "symbol": "€",
+    "children": [
+      {
+        "id": "050",
+        "styleName": "普货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":4.2,\"max\":0.45,\"min\":0.0},{\"perParcel\":3.2,\"perKg\":4.3,\"max\":1.0,\"min\":0.45},{\"perParcel\":3.2,\"perKg\":4.3,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.2,\"perKg\":4.3,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "051",
+        "styleName": "特货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":5.0,\"max\":0.45,\"min\":0.0},{\"perParcel\":3.3,\"perKg\":5.0,\"max\":1.0,\"min\":0.45},{\"perParcel\":3.1,\"perKg\":5.2,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.1,\"perKg\":5.2,\"max\":30.0,\"min\":3.0}]"
+      },
+      {
+        "id": "052",
+        "styleName": "敏货",
+        "fee": "[{\"perParcel\":3.3,\"perKg\":5.7,\"max\":0.45,\"min\":0.0},{\"perParcel\":3.3,\"perKg\":5.7,\"max\":1.0,\"min\":0.45},{\"perParcel\":3.2,\"perKg\":5.8,\"max\":3.0,\"min\":1.0},{\"perParcel\":3.2,\"perKg\":5.8,\"max\":30.0,\"min\":3.0}]"
+      }
+    ]
+  }
+]

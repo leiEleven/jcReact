@@ -4,7 +4,7 @@ export default class ReturnGoods extends React.Component{
 
     render(){
         return (
-            <div>ReturnGoods</div>
+            <div>采购价推算</div>
         )
     }
 }
