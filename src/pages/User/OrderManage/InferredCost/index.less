@@ -1,0 +1,320 @@
+/* 基础样式设置 */
+.basic-cost-calculator {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 头部样式 */
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+
+  h2 {
+    margin: 0;
+    font-size: 18px; /* 可根据需要调整标题大小 */
+    color: @primary-color;
+  }
+
+  .reset-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #d9363e;
+    }
+  }
+}
+
+/* 主体内容样式 */
+.calculator-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* 输入区域样式 */
+.input-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-top: 0;
+     color: @primary-color;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+/* 输入网格布局 */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* 输入组样式 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  input, select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: #1890ff;
+      outline: none;
+    }
+  }
+
+  .region-select {
+    padding: 8px 12px;
+    height: 34px;
+  }
+
+  small {
+    color: #888;
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .refresh-rate {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #096dd9;
+    }
+
+    &:disabled {
+      background-color: #8cc5ff;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/* 计算按钮区域 */
+.calculate-section {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+
+  .calculate-button {
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #45a81a;
+    }
+
+    &:disabled {
+      background-color: #a9d98f;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/* 结果区域样式 */
+.result-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-top: 0;
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  h4 {
+    color: #555;
+    font-size: 16px;
+    margin: 15px 0 10px;
+  }
+
+  h5 {
+    color: #666;
+    font-size: 14px;
+    margin: 12px 0 8px;
+  }
+}
+
+/* 关键结果样式 */
+.key-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+  margin-bottom: 20px;
+
+  .result-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2a9d54;
+  }
+
+  .result-value {
+    text-align: right;
+    
+    .primary {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2a9d54;
+    }
+    
+    .secondary-currency {
+      font-size: 14px;
+      color: #52c41a;
+      margin-top: 4px;
+    }
+  }
+}
+
+/* 结果详情样式 */
+.result-details {
+  margin-top: 15px;
+
+  .detail-group {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span:first-child {
+      color: #666;
+    }
+
+    &.negative span:last-child {
+      color: #f5222d;
+    }
+
+    &.total {
+      font-weight: bold;
+      margin-top: 5px;
+      padding-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    &.highlight {
+      color: #1890ff;
+    }
+    
+    &.profit-positive {
+      color: #52c41a;
+    }
+    
+    &.profit-negative {
+      color: #f5222d;
+    }
+  }
+  
+  /* 双币种显示样式 */
+  .dual-currency-display {
+    text-align: right;
+    
+    .primary {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .secondary {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+    }
+    
+    &.profit-positive .primary,
+    &.profit-positive .secondary {
+      color: #52c41a;
+    }
+    
+    &.profit-negative .primary,
+    &.profit-negative .secondary {
+      color: #f5222d;
+    }
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .key-result {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

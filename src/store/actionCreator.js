@@ -58,7 +58,9 @@ export const permissionAction = (path) => {
                     "data": [
 
                         "inferred-pricing",
-                        "procurement-cost",
+                        "inferred-cost",
+
+                        
                         "index", "order-manage", "product-manage", "product-list", 
                         "review-manage",  "goods", "goods-list", "goods-classify", 
                         "permission", "user-manage", "role-manage", "menu-manage"

@@ -5,7 +5,7 @@
         import GoodsList from './pages/User/Goods/GoodsList'
         import GoodsClassify from './pages/User/Goods/GoodsClassify'
         import InferredPricing from './pages/User/OrderManage/InferredPricing'
-        import ProcurementCost from './pages/User/OrderManage/ProcurementCost'
+        import InferredCost from './pages/User/OrderManage/InferredCost'
 // import NotFound from './pages/NotFound'
 
 // import SecondLevelComponent from './common/SecondLevelComponent'
@@ -61,8 +61,8 @@ const routes = [
                     },
                     {
                         path: '/user/tiktok/cost',
-                        pathName: 'procurement-cost',
-                        component: ProcurementCost,
+                        pathName: 'inferred-cost',
+                        component: InferredCost,
                         name: '采购价推算',
                         icon: 'eye'
                     }
