@@ -30,7 +30,7 @@ function resolveOne(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-let dllPublishPath = './vender'
+let dllPublishPath = './vendor'
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -554,20 +554,19 @@ module.exports = function(webpackEnv) {
         )
       ),
       //忽略已编译的文件
-      isEnvProduction && new webpack.DllReferencePlugin({
-        context: process.cwd(),
-        manifest: require('../public/vendor/vendor-manifest.json')
-      }),
-
+// isEnvProduction && new webpack.DllReferencePlugin({
+//   context: process.cwd(),
+//   manifest: require(path.resolve(__dirname, '../public/vendor/vendor-manifest.json'))
+// }),
       // 将 dll 注入到 生成的 html 模板中
-      isEnvProduction && new AddAssetHtmlPlugin({
-        // dll文件位置
-        filepath: path.resolve(__dirname, '../public/vendor/*.js'),
-        // dll 引用路径
-        publicPath: dllPublishPath,
-        // dll最终输出的目录
-        outputPath: './vendor'
-      }),
+//  isEnvProduction && new AddAssetHtmlPlugin({
+//   // dll文件位置
+//   filepath: path.resolve(__dirname, '../public/vendor/*.js'), // 直接指定正确路径
+//   // dll 引用路径
+//   publicPath: '/vendor/',  // 改为绝对路径
+//   // dll最终输出的目录
+//   outputPath: 'vendor'     // 去掉开头的 ./
+// }),
       
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.

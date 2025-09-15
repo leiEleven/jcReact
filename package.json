@@ -70,11 +70,11 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": " node scripts/start.js",
-    "start:randy": "cross-env API_TYPE=randy node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "dll": "webpack -p --progress --config ./config/webpack.dll.conf.js"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider node scripts/start.js",
+  "start:randy": "cross-env API_TYPE=randy NODE_OPTIONS=--openssl-legacy-provider node scripts/start.js",
+  "build": "NODE_OPTIONS=--openssl-legacy-provider node scripts/build.js",
+  "test": "NODE_OPTIONS=--openssl-legacy-provider node scripts/test.js",
+  "dll": "NODE_OPTIONS=--openssl-legacy-provider webpack -p --progress --config ./config/webpack.dll.conf.js"
   },
   "eslintConfig": {
     "extends": "react-app"
