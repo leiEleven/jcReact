@@ -21,6 +21,7 @@ const tiktokRegions = [
   { id: 'IT', name: '意大利', currency: 'EUR', symbol: '€' },
   { id: 'ES', name: '西班牙', currency: 'EUR', symbol: '€' }
 ];
+const shippingConfig = require('./kuaidi.json')
 
 class InferredPricing extends React.Component {
   constructor(props) {
@@ -31,7 +32,13 @@ class InferredPricing extends React.Component {
       exchangeRate: 1,
       isLoading: false,
       lastUpdated: '',
-      
+shippingFormula: '', // 运费计算公式
+    shopType: 'local', // 'local' 或 'crossBorder'
+    packageSize: 'small', // 'small' 或 'large'
+    cargoType: '030', // 货物类型ID
+    packageWeight: 0, // 包裹重量(kg)
+    calculatedShippingCost: 0, // 计算出的运费
+       smallPackageCost: 0,
       // 平台费用相关状态
       platformCommission: 5, // 平台佣金率（%）
       influencerCommission: 10, // 达人佣金率（%）
@@ -69,6 +76,7 @@ class InferredPricing extends React.Component {
   // 组件挂载时加载数据
   componentDidMount() {
     this.loadData();
+      this.updateShippingCost(); // 添加这行
   }
 
 // 加载数据（从localStorage获取，新增推广费率加载）
@@ -180,6 +188,129 @@ resetAllData = () => {
     }
   }
 
+
+  // 计算小件运费
+calculateSmallPackageShipping = () => {
+  const { selectedRegion, cargoType, packageWeight } = this.state;
+  
+  // 获取当前地区的运费配置
+  const regionConfig = shippingConfig.find(region => region.id === selectedRegion);
+  if (!regionConfig) return { cost: 0, formula: '' };
+  
+  // 获取货物类型的运费规则
+  const cargoConfig = regionConfig.children.find(item => item.id === cargoType);
+  if (!cargoConfig) return { cost: 0, formula: '' };
+  
+  try {
+    const feeRules = JSON.parse(cargoConfig.fee);
+    
+    // 找到适用的运费规则
+    const applicableRule = feeRules.find(rule => 
+      packageWeight >= rule.min && packageWeight < rule.max
+    );
+    
+    if (applicableRule) {
+      const cost = applicableRule.perParcel + (applicableRule.perKg * packageWeight);
+      const formula = `${applicableRule.perParcel} + ${applicableRule.perKg} × ${packageWeight}`;
+      return { cost, formula };
+    }
+    
+    return { cost: 0, formula: '' };
+  } catch (error) {
+    console.error('解析运费规则失败:', error);
+    return { cost: 0, formula: '' };
+  }
+}
+
+// 更新运费计算
+// 修改 updateShippingCost 方法
+// 修改 updateShippingCost 方法
+// 修改 updateShippingCost 方法
+updateShippingCost = () => {
+  const { selectedRegion, shopType, packageSize, forwardingCost, shippingCost, tailShippingCost, exchangeRate } = this.state;
+  
+  const isSpecialRegion = ['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(selectedRegion);
+  
+  if (isSpecialRegion && shopType === 'crossBorder' && packageSize === 'small') {
+    // 跨境小件模式：计算特殊运费（不包含货代）
+    const { cost, formula } = this.calculateSmallPackageShipping();
+    const forwardingCostLocal = forwardingCost * exchangeRate; // 货代费用转换为当地货币
+    const totalCost = forwardingCostLocal + cost;
+    
+    this.setState({ 
+      calculatedShippingCost: totalCost, // 总运费 = 货代 + 小件运费
+      shippingFormula: formula, // 包裹设置只显示特殊运费公式
+      smallPackageCost: cost // 保存小件运费（不包含货代）
+    });
+  } else {
+    // 本土店铺或大件模式：所有运费总和（CNY）转换为当地货币
+    const totalCostCNY = Number(forwardingCost) + Number(shippingCost) + Number(tailShippingCost);
+    const totalCostLocal = totalCostCNY * exchangeRate;
+    
+    this.setState({ 
+      calculatedShippingCost: totalCostLocal,
+      shippingFormula: '',
+      smallPackageCost: 0
+    });
+  }
+}
+
+
+// 处理店铺类型变化
+handleShopTypeChange = (e) => {
+  const shopType = e.target.value;
+  this.setState({ shopType }, () => {
+    this.saveData({ shopType });
+    // 切换店铺类型时重置运费相关字段
+    if (shopType === 'crossBorder') {
+      this.setState({
+        shippingCost: 0,
+        tailShippingCost: 0
+      }, () => {
+        this.updateShippingCost();
+      });
+    } else {
+      this.updateShippingCost();
+    }
+  });
+}
+
+// 处理包裹大小变化
+handlePackageSizeChange = (e) => {
+  const packageSize = e.target.value;
+  this.setState({ packageSize }, () => {
+    this.saveData({ packageSize });
+    // 切换包裹大小时重置运费
+    if (packageSize === 'small') {
+      this.setState({
+        shippingCost: 0,
+        tailShippingCost: 0
+      }, () => {
+        this.updateShippingCost();
+      });
+    } else {
+      this.updateShippingCost();
+    }
+  });
+}
+
+// 处理货物类型变化
+handleCargoTypeChange = (e) => {
+  const cargoType = e.target.value;
+  this.setState({ cargoType }, () => {
+    this.saveData({ cargoType });
+    this.updateShippingCost();
+  });
+}
+
+// 处理包裹重量变化
+handlePackageWeightChange = (e) => {
+  const packageWeight = parseFloat(e.target.value) || 0;
+  this.setState({ packageWeight }, () => {
+    this.saveData({ packageWeight });
+    this.updateShippingCost();
+  });
+}
   // 手动更新汇率
   refreshRate = () => {
     this.fetchExchangeRate(this.state.selectedRegion);
@@ -191,8 +322,11 @@ resetAllData = () => {
     this.setState({ selectedRegion: region }, () => {
       this.saveData({ selectedRegion: region });
       this.fetchExchangeRate(region);
+          this.updateShippingCost(); // 添加这行
     });
   }
+
+
 
   // 处理平台费用变化
   handlePlatformCommissionChange = (e) => {
@@ -201,6 +335,8 @@ resetAllData = () => {
     this.saveData({ platformCommission: value });
   }
 
+
+  
   handleInfluencerCommissionChange = (e) => {
     const value = parseFloat(e.target.value) || 0;
     this.setState({ influencerCommission: value });
@@ -252,23 +388,29 @@ handlePromotionRateChange = (e) => {
     this.saveData({ procurementCost: cost });
   }
 
-  handleForwardingCostChange = (e) => {
-    const cost = parseFloat(e.target.value) || 0;
-    this.setState({ forwardingCost: cost });
+ handleForwardingCostChange = (e) => {
+  const cost = parseFloat(e.target.value) || 0;
+  this.setState({ forwardingCost: cost }, () => {
     this.saveData({ forwardingCost: cost });
-  }
+    this.updateShippingCost(); // 添加这行
+  });
+}
 
-  handleShippingCostChange = (e) => {
-    const cost = parseFloat(e.target.value) || 0;
-    this.setState({ shippingCost: cost });
+handleShippingCostChange = (e) => {
+  const cost = parseFloat(e.target.value) || 0;
+  this.setState({ shippingCost: cost }, () => {
     this.saveData({ shippingCost: cost });
-  }
+    this.updateShippingCost(); // 添加这行
+  });
+}
 
-  handleTailShippingCostChange = (e) => {
-    const cost = parseFloat(e.target.value) || 0;
-    this.setState({ tailShippingCost: cost });
+handleTailShippingCostChange = (e) => {
+  const cost = parseFloat(e.target.value) || 0;
+  this.setState({ tailShippingCost: cost }, () => {
     this.saveData({ tailShippingCost: cost });
-  }
+    this.updateShippingCost(); // 添加这行
+  });
+}
 
   handleReturnRateChange = (e) => {
     const rate = parseFloat(e.target.value) || 0;
@@ -297,10 +439,22 @@ handlePromotionRateChange = (e) => {
 
   // 计算定价函数
 calculatePricing = () => {
+  const { selectedRegion, shopType, packageSize, exchangeRate } = this.state;
+  
+  let shippingCostCNY = 0;
+  const isSpecialRegion = ['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(selectedRegion);
+  const isSpecialShipping = isSpecialRegion && shopType === 'crossBorder' && packageSize === 'small';
+  
+  if (isSpecialShipping) {
+    // 跨境小件模式：将当地货币运费转换回CNY
+    shippingCostCNY = this.state.calculatedShippingCost / exchangeRate;
+  } else {
+    // 常规模式：直接使用输入的CNY运费
+    shippingCostCNY = this.state.forwardingCost + this.state.shippingCost + this.state.tailShippingCost;
+  }
+  
   // 计算总成本（人民币）
-  const totalCostCNY = this.state.procurementCost + this.state.packagingCost + 
-                      this.state.forwardingCost + this.state.shippingCost + 
-                      this.state.tailShippingCost;
+  const totalCostCNY = this.state.procurementCost + this.state.packagingCost + shippingCostCNY;
 
   // 转换为当地货币成本（关键：所有成本统一为当地货币，与销售价单位一致）
   const procurementCostLocal = this.state.procurementCost * this.state.exchangeRate;
@@ -358,16 +512,14 @@ calculatePricing = () => {
   // 净利润
   const netProfit = actualReceivedAmount - totalCostLocal;
 
-  // #################### 自定义ROI计算 ####################
+  // ROI计算
   const salePrice = requiredRevenue; // 销售价格（当地货币）
   const logisticsCost = shippingCostLocal + tailShippingCostLocal; // 物流成本=头程+尾程
   const freightForwarderCost = forwardingCostLocal; // 货代费用
   const productCost = procurementCostLocal + packagingCostLocal; // 商品成本=采购+包材
-  // 公式：(销售价 - 物流 - 货代 - 商品成本) / 销售价 × 100% → 避免销售价为0
   const roi = salePrice === 0 
     ? 0 
     : ((salePrice - logisticsCost - freightForwarderCost - productCost) / salePrice) * 100;
-  // #######################################################
 
   // 净利润率（基于成本）
   const netProfitMargin = totalCostLocal === 0 ? 0 : (netProfit / totalCostLocal) * 100;
@@ -388,6 +540,9 @@ calculatePricing = () => {
       shippingCostLocal,
       tailShippingCost: this.state.tailShippingCost,
       tailShippingCostLocal,
+      isSpecialShipping, // 添加标识
+      specialShippingCost: isSpecialShipping ? shippingCostCNY : 0, // 特殊运费CNY
+      specialShippingCostLocal: isSpecialShipping ? this.state.calculatedShippingCost : 0, // 特殊运费当地货币
       platformCommissionFee,
       influencerCommissionFee,
       promotionFee,
@@ -400,7 +555,7 @@ calculatePricing = () => {
       totalFees,
       returnLoss,
       netProfit,
-      roi, // 自定义ROI结果
+      roi,
       requiredRevenue,
       returnRate: returnRateValue,
       netProfitMargin,
@@ -489,7 +644,10 @@ resetAllData = () => {
       calculationDetails
     } = this.state;
     const region = this.currentRegion;
-
+const showRegularShipping = 
+  this.state.shopType !== 'crossBorder' || 
+  this.state.packageSize !== 'small' || 
+  !['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(this.state.selectedRegion);
     return (
       <main className="tiktok-calculator">
         <div className="calculator-header">
@@ -551,6 +709,88 @@ resetAllData = () => {
               </div>
             </div>
           </div>
+          // 在地区和汇率部分之后添加店铺类型选择
+<div className="section-card">
+  <h4 className="section-title">店铺类型</h4>
+  <div className="shop-type-selector">
+    <label>
+      <input
+        type="radio"
+        value="local"
+        checked={this.state.shopType === 'local'}
+        onChange={this.handleShopTypeChange}
+      />
+      本土店铺
+    </label>
+    <label>
+      <input
+        type="radio"
+        value="crossBorder"
+        checked={this.state.shopType === 'crossBorder'}
+        onChange={this.handleShopTypeChange}
+      />
+      跨境店铺
+    </label>
+  </div>
+</div>
+
+// 在店铺类型之后添加包裹设置（仅对特定地区显示）
+{['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(this.state.selectedRegion) && 
+ this.state.shopType === 'crossBorder' && (
+  <div className="section-card">
+    <h4 className="section-title">包裹设置</h4>
+    <div className="package-settings">
+      <div className="package-size-selector">
+        <label>包裹大小</label>
+        <select
+          value={this.state.packageSize}
+          onChange={this.handlePackageSizeChange}
+        >
+          <option value="small">小件</option>
+          <option value="large">大件</option>
+        </select>
+      </div>
+
+      {this.state.packageSize === 'small' && (
+        <div className="small-package-details">
+          <div className="cargo-type-selector">
+            <label>货物类型</label>
+            <select
+              value={this.state.cargoType}
+              onChange={this.handleCargoTypeChange}
+            >
+            {(shippingConfig.find(region => region.id === this.state.selectedRegion) || { children: [] })
+            .children.map(type => (
+                <option key={type.id} value={type.id}>
+                {type.styleName}
+                </option>
+            ))}
+            </select>
+          </div>
+
+<div className="weight-input">
+  <label>包裹重量 (kg)</label>
+  <input
+    type="number"
+    value={this.state.packageWeight}
+    onChange={this.handlePackageWeightChange}
+    min="0"
+    step="0.1"
+    placeholder="输入重量"
+  />
+  {this.state.smallPackageCost > 0 && this.state.shippingFormula && (
+    <div className="shipping-formula-display">
+      <span className="formula">
+        {this.state.shippingFormula} = {this.state.smallPackageCost.toFixed(2)} {this.currentRegion.currency}
+      </span>
+    </div>
+  )}
+</div>
+        </div>
+      )}
+    </div>
+  </div>
+)}
 
           {/* 平台费用部分 */}
 <div className="section-card">
@@ -723,64 +963,93 @@ resetAllData = () => {
           </div>
 
           {/* 运费设置部分 */}
-          <div className="section-card">
-            <h4 className="section-title">运费设置</h4>
-            <div className="cost-inputs-grid">
-               <div className="cost-input">
-                <label>货代费用 (CNY)</label>
-                <div className="currency-input-container">
-                  <input
-                    type="number"
-                    value={this.state.forwardingCost}
-                    onChange={this.handleForwardingCostChange}
-                    min="0"
-                    step="0.01"
-                    className="cost-input-field"
-                    placeholder="货代费用"
-                  />
-                  <span className="currency-conversion">
-                    ≈ {(this.state.forwardingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
-                  </span>
-                </div>
-              </div>
+<div className="section-card">
+  <h4 className="section-title">运费设置</h4>
+  <div className="cost-inputs-grid">
+    <div className="cost-input">
+      <label>货代费用 (CNY)</label>
+      <div className="currency-input-container">
+        <input
+          type="number"
+          value={this.state.forwardingCost}
+          onChange={this.handleForwardingCostChange}
+          min="0"
+          step="0.01"
+          className="cost-input-field"
+          placeholder="货代费用"
+        />
+        <span className="currency-conversion">
+          ≈ {(this.state.forwardingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
+        </span>
+      </div>
+    </div>
 
-              <div className="cost-input">
-                <label>头程运费 (CNY)</label>
-                <div className="currency-input-container">
-                  <input
-                    type="number"
-                    value={this.state.shippingCost}
-                    onChange={this.handleShippingCostChange}
-                    min="0"
-                    step="0.01"
-                    className="cost-input-field"
-                    placeholder="头程运费"
-                  />
-                  <span className="currency-conversion">
-                    ≈ {(this.state.shippingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
-                  </span>
-                </div>
-              </div>
-
-              <div className="cost-input">
-                <label>尾程运费 (CNY)</label>
-                <div className="currency-input-container">
-                  <input
-                    type="number"
-                    value={this.state.tailShippingCost}
-                    onChange={this.handleTailShippingCostChange}
-                    min="0"
-                    step="0.01"
-                    className="cost-input-field"
-                    placeholder="尾程运费"
-                  />
-                  <span className="currency-conversion">
-                    ≈ {(this.state.tailShippingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
-                  </span>
-                </div>
-              </div>
-            </div>
+    {showRegularShipping && (
+      <>
+        <div className="cost-input">
+          <label>头程运费 (CNY)</label>
+          <div className="currency-input-container">
+            <input
+              type="number"
+              value={this.state.shippingCost}
+              onChange={this.handleShippingCostChange}
+              min="0"
+              step="0.01"
+              className="cost-input-field"
+              placeholder="头程运费"
+            />
+            <span className="currency-conversion">
+              ≈ {(this.state.shippingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
+            </span>
           </div>
+        </div>
+
+        <div className="cost-input">
+          <label>尾程运费 (CNY)</label>
+          <div className="currency-input-container">
+            <input
+              type="number"
+              value={this.state.tailShippingCost}
+              onChange={this.handleTailShippingCostChange}
+              min="0"
+              step="0.01"
+              className="cost-input-field"
+              placeholder="尾程运费"
+            />
+            <span className="currency-conversion">
+              ≈ {(this.state.tailShippingCost * this.state.exchangeRate).toFixed(2)} {region.currency}
+            </span>
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+  
+  {/* 显示计算出的总运费 */}
+<div className="total-shipping-cost">
+  <span>总运费: </span>
+  <span className="cost-value">
+    {this.state.calculatedShippingCost.toFixed(2)} {region.currency}
+  </span>
+  <span className="cny-conversion">
+    / {(this.state.calculatedShippingCost / this.state.exchangeRate).toFixed(2)} CNY
+  </span>
+  
+  {/* 显示详细的计算公式 */}
+  {this.state.shopType === 'crossBorder' && 
+   this.state.packageSize === 'small' && 
+   ['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(this.state.selectedRegion) &&
+   this.state.smallPackageCost > 0 && (
+    <div className="detailed-formula">
+      <small>
+        ({this.state.forwardingCost.toFixed(2)} CNY × {this.state.exchangeRate.toFixed(4)}) + {this.state.shippingFormula} = 
+        {(this.state.forwardingCost * this.state.exchangeRate).toFixed(2)} + {this.state.smallPackageCost.toFixed(2)} = 
+        {this.state.calculatedShippingCost.toFixed(2)} {region.currency}
+      </small>
+    </div>
+  )}
+</div>
+</div>
           {/* 其他设置部分 */}
           <div className="section-card">
             <h4 className="section-title">其他设置</h4>
@@ -851,53 +1120,69 @@ resetAllData = () => {
 
         {/* 成本明细：调整为 3 列网格 */}
         <h5 className="detail-section-header">成本明细:</h5>
-        <div className="detail-grid cost-grid">
-          <div className="detail-item">
-            <span className="detail-label">采购成本:</span>
-            <span className="dual-currency">
-              {(calculationDetails.procurementCostLocal || 0).toFixed(2)} {region.currency}
-              <span className="cny-conversion">
-                / {(calculationDetails.procurementCost || 0).toFixed(2)} CNY
-              </span>
-            </span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">包材成本:</span>
-            <span className="dual-currency">
-              {(calculationDetails.packagingCostLocal || 0).toFixed(2)} {region.currency}
-              <span className="cny-conversion">
-                / {(calculationDetails.packagingCost || 0).toFixed(2)} CNY
-              </span>
-            </span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">货代费用:</span>
-            <span className="dual-currency">
-              {(calculationDetails.forwardingCostLocal || 0).toFixed(2)} {region.currency}
-              <span className="cny-conversion">
-                / {(calculationDetails.forwardingCost || 0).toFixed(2)} CNY
-              </span>
-            </span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">头程运费:</span>
-            <span className="dual-currency">
-              {(calculationDetails.shippingCostLocal || 0).toFixed(2)} {region.currency}
-              <span className="cny-conversion">
-                / {(calculationDetails.shippingCost || 0).toFixed(2)} CNY
-              </span>
-            </span>
-          </div>
-          <div className="detail-item">
-            <span className="detail-label">尾程运费:</span>
-            <span className="dual-currency">
-              {(calculationDetails.tailShippingCostLocal || 0).toFixed(2)} {region.currency}
-              <span className="cny-conversion">
-                / {(calculationDetails.tailShippingCost || 0).toFixed(2)} CNY
-              </span>
-            </span>
-          </div>
-        </div>
+   <div className="detail-grid cost-grid">
+  <div className="detail-item">
+    <span className="detail-label">采购成本:</span>
+    <span className="dual-currency">
+      {(calculationDetails.procurementCostLocal || 0).toFixed(2)} {region.currency}
+      <span className="cny-conversion">
+        / {(calculationDetails.procurementCost || 0).toFixed(2)} CNY
+      </span>
+    </span>
+  </div>
+  <div className="detail-item">
+    <span className="detail-label">包材成本:</span>
+    <span className="dual-currency">
+      {(calculationDetails.packagingCostLocal || 0).toFixed(2)} {region.currency}
+      <span className="cny-conversion">
+        / {(calculationDetails.packagingCost || 0).toFixed(2)} CNY
+      </span>
+    </span>
+  </div>
+  <div className="detail-item">
+    <span className="detail-label">货代费用:</span>
+    <span className="dual-currency">
+      {(calculationDetails.forwardingCostLocal || 0).toFixed(2)} {region.currency}
+      <span className="cny-conversion">
+        / {(calculationDetails.forwardingCost || 0).toFixed(2)} CNY
+      </span>
+    </span>
+  </div>
+  
+  {/* 根据运费模式显示不同的运费项目 */}
+  {calculationDetails.isSpecialShipping ? (
+    <div className="detail-item">
+      <span className="detail-label">运费:</span>
+      <span className="dual-currency">
+        {calculationDetails.specialShippingCostLocal.toFixed(2)} {region.currency}
+        <span className="cny-conversion">
+          / {calculationDetails.specialShippingCost.toFixed(2)} CNY
+        </span>
+      </span>
+    </div>
+  ) : (
+    <>
+      <div className="detail-item">
+        <span className="detail-label">头程运费:</span>
+        <span className="dual-currency">
+          {(calculationDetails.shippingCostLocal || 0).toFixed(2)} {region.currency}
+          <span className="cny-conversion">
+            / {(calculationDetails.shippingCost || 0).toFixed(2)} CNY
+          </span>
+        </span>
+      </div>
+      <div className="detail-item">
+        <span className="detail-label">尾程运费:</span>
+        <span className="dual-currency">
+          {(calculationDetails.tailShippingCostLocal || 0).toFixed(2)} {region.currency}
+          <span className="cny-conversion">
+            / {(calculationDetails.tailShippingCost || 0).toFixed(2)} CNY
+          </span>
+        </span>
+      </div>
+    </>
+  )}
+</div>
 
         {/* 费用明细：调整为 4 列网格 */}
         <h5 className="detail-section-header">费用明细:</h5>
