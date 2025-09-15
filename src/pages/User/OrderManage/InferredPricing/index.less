@@ -34,37 +34,44 @@
 }
 
 // 头部样式
+
+
 .calculator-header {
+  /* 使用flex布局实现标题居中，按钮居右 */
   display: flex;
-//   justify-content: space-between;
   align-items: center;
-  margin-bottom: @spacing-lg;
-  padding-bottom: @spacing-md;
-  border-bottom: 1px solid @border-color;
+  justify-content: center;
+  position: relative; /* 为按钮绝对定位提供参考 */
+  width: 100%; /* 确保占满父容器宽度 */
+  padding: 16px; /* 适当的内边距 */
+  box-sizing: border-box; /* 确保padding不会增加总宽度 */
 
   .titleName {
-    margin: 0;
-    font-size: 24px;
-    color: @primary-color;
-    font-weight: 600;
+    margin: 0; /* 清除默认margin */
+    font-size: 18px; /* 可根据需要调整标题大小 */
+      color: @primary-color;
   }
 
   .reset-btn {
-    background-color: @accent-color;
+    position: absolute; /* 绝对定位到右侧 */
+    right: 16px; /* 右侧距离 */
+    padding: 6px 12px; /* 按钮内边距 */
+    background-color: #f0f0f0; /* 按钮背景色 */
+    border: 1px solid #ddd; /* 按钮边框 */
+    border-radius: 4px; /* 圆角 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    font-size: 14px; /* 按钮文字大小 */
+    transition: all 0.2s; /* 过渡效果 */
+     background-color: @accent-color;
     color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: @border-radius;
-    cursor: pointer;
-    transition: all @transition-speed;
-    font-size: 14px;
+   
 
     &:hover {
-      background-color: darken(@accent-color, 10%);
-      transform: translateY(-2px);
+      background-color: #e0e0e0; /* 悬停时背景色变化 */
     }
   }
 }
+
 
 // 内容区域样式
 .calculator-content {

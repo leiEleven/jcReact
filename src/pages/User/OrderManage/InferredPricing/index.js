@@ -709,7 +709,7 @@ const showRegularShipping =
               </div>
             </div>
           </div>
-          // 在地区和汇率部分之后添加店铺类型选择
+          {/* // 在地区和汇率部分之后添加店铺类型选择 */}
 <div className="section-card">
   <h4 className="section-title">店铺类型</h4>
   <div className="shop-type-selector">
