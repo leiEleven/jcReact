@@ -32,7 +32,7 @@ export default class NotFound extends React.Component {
         }
         return (
             <div className="loading">
-                NotFound 404
+                今创后台管理系统
             </div>
         )
     }

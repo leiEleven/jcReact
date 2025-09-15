@@ -7,11 +7,11 @@ import './index.less'
 // 本地用户数据（模拟服务端返回）
 const localUsers = {
   "admin": {
-    password: "1",
+    password: "pengjin123456",
     userInfo: {
       "code": 1,
       "data": {
-        "avatar": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0iI2U2ZTZlNiIvPjxwYXRoIGQ9Ik00MCA0MGMxMS4wNSAwIDIwLTguOTUgMjAtMjBTNTEuMDUgMCA0MCAwIDIwIDguOTUgMjAgMjBzOC45NSAyMCAyMCAyMHptMCAzMGMtMTYuNTQgMC0zMCA2LjcxLTMwIDE1djVjMCAyLjc2IDYuNzEgNSA1IDVoNTBjMi43NiAwIDUtMi4yNCA1LTV2LTVjMC04LjI5LTEzLjQ2LTE1LTMwLTE1eiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSIzOCIgZmlsbD0iI2YwZjBmMCIgc3Ryb2tlPSIjZDBkMGQwIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjMyIiByPSI0IiBmaWxsPSIjNjY2Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSIzMiIgcj0iNCIgZmlsbD0iIzY2NiIvPjxwYXRoIGQ9Ik0zNSA0OCBjMyAzIDUgMyAxMCAwIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0yNiAzNiBsLTQgLTQiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTU0IDM2IGw0IC00IiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==",
         "name": "admin",
         "roles": [
           "admin"
@@ -154,11 +154,7 @@ class NormalLoginForm extends React.Component {
           <div className="login-title">后台管理系统</div>
           
           <div style={{ textAlign: 'center', marginBottom: 20 }}>
-            <img 
-              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0iI2U2ZTZlNiIvPjxwYXRoIGQ9Ik00MCA0MGMxMS4wNSAwIDIwLTguOTUgMjAtMjBTNTEuMDUgMCA0MCAwIDIwIDguOTUgMjAgMjBzOC45NSAyMCAyMCAyMHptMCAzMGMtMTYuNTQgMC0zMCA2LjcxLTMwIDE1djVjMCAyLjc2IDYuNzEgNSA1IDVoNTBjMi43NiAwIDUtMi4yNCA1LTV2LTVjMC04LjI5LTEzLjQ2LTE1LTMwLTE1eiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==" 
-              alt="用户头像" 
-              style={{ width: 80, height: 80, borderRadius: '50%', border: '3px solid #1890ff' }}
-            />
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSIzOCIgZmlsbD0iI2YwZjBmMCIgc3Ryb2tlPSIjZDBkMGQwIiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjMyIiByPSI0IiBmaWxsPSIjNjY2Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSIzMiIgcj0iNCIgZmlsbD0iIzY2NiIvPjxwYXRoIGQ9Ik0zNSA0OCBjMyAzIDUgMyAxMCAwIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0yNiAzNiBsLTQgLTQiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTU0IDM2IGw0IC00IiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==" alt="精致头像" />
           </div>
           
           <Form.Item>
@@ -199,13 +195,7 @@ class NormalLoginForm extends React.Component {
             </Button>
           </Form.Item>
           
-          <Form.Item>
-            <div className="loginTip">
-              测试账号：admin/1 或 user/123456
-              <br />
-              注意：密码仅保存在当前设备，换设备需要重新输入
-            </div>
-          </Form.Item>
+
         </Form>
       </div>
     );

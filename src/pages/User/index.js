@@ -110,7 +110,7 @@ class User extends React.Component {
                         </Switch>
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2019</Footer>
+                    <Footer style={{ textAlign: 'center' }}>今创 Design ©2025</Footer>
                 </Layout>
             </Layout>
         )
