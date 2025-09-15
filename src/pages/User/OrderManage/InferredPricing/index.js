@@ -705,6 +705,28 @@ resetAllData = () => {
               </div>
 
               <div className="cost-input">
+                <label>退货率 (%)</label>
+                <div className="currency-input-container">
+                  <input
+                    type="number"
+                    value={this.state.returnRate}
+                    onChange={this.handleReturnRateChange}
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    className="cost-input-field"
+                    placeholder="退货率"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 运费设置部分 */}
+          <div className="section-card">
+            <h4 className="section-title">运费设置</h4>
+            <div className="cost-inputs-grid">
+               <div className="cost-input">
                 <label>货代费用 (CNY)</label>
                 <div className="currency-input-container">
                   <input
@@ -757,25 +779,8 @@ resetAllData = () => {
                   </span>
                 </div>
               </div>
-
-              <div className="cost-input">
-                <label>退货率 (%)</label>
-                <div className="currency-input-container">
-                  <input
-                    type="number"
-                    value={this.state.returnRate}
-                    onChange={this.handleReturnRateChange}
-                    min="0"
-                    max="100"
-                    step="0.1"
-                    className="cost-input-field"
-                    placeholder="退货率"
-                  />
-                </div>
-              </div>
             </div>
           </div>
-
           {/* 其他设置部分 */}
           <div className="section-card">
             <h4 className="section-title">其他设置</h4>
