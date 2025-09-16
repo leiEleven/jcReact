@@ -122,16 +122,16 @@ class EnhancedCostCalculator extends React.Component {
 
       // 使用汇率API获取实时汇率
       const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${baseCurrency}`);
-      
+
       if (!response.ok) throw new Error('汇率获取失败');
-      
+
       const data = await response.json();
       this.setState({
         exchangeRate: data.rates[region.currency],
         lastUpdated: new Date().toLocaleString(),
         isLoading: false
       }, this.saveData);
-      
+
     } catch (error) {
       console.error('获取汇率失败，使用默认值:', error);
       // 使用默认汇率
@@ -139,7 +139,7 @@ class EnhancedCostCalculator extends React.Component {
         'US': 0.14, 'MX': 2.5, 'BR': 0.75,
         'UK': 0.11, 'DE': 0.13, 'FR': 0.13,
         'JP': 15.5, 'CN': 1,
-        'TH': 4.8, 'ID': 2150, 'SG': 0.19, 
+        'TH': 4.8, 'ID': 2150, 'SG': 0.19,
         'VN': 3400, 'PH': 8.0, 'MY': 0.65,
         'AU': 0.22
       };
@@ -173,15 +173,14 @@ class EnhancedCostCalculator extends React.Component {
       shippingCost, packagingCost, otherCost
     } = this.state;
 
-    // 如果售价为0，不进行计算
     if (sellingPrice <= 0) {
       this.setState({ calculatedCost: 0, calculationDetails: null });
       return;
     }
 
-    // 1. 计算总费用率，包含推广费率、SFP费率
+    // 1. 计算总费用率
     const totalFeeRate = (platformCommission + influencerCommission + promotionRate + sfpRate +
-                         processingFee + taxRate + otherFee) / 100;
+      processingFee + taxRate + otherFee) / 100;
 
     // 2. 计算扣除所有费用后的金额
     const amountAfterFees = sellingPrice * (1 - totalFeeRate);
@@ -196,33 +195,36 @@ class EnhancedCostCalculator extends React.Component {
     // 5. 将金额转换为人民币
     const amountInCNY = amountAfterWithdrawal / exchangeRate;
 
-    // 6. 计算其他固定成本总和（人民币）
+    // 6. 计算其他固定成本总和
     const fixedCosts = shippingCost + packagingCost + otherCost;
 
-    // 7. 计算目标利润所需的金额
-    const requiredProfit = amountInCNY * (profitMargin / 100);
+    // 7. 计算目标利润
+    const totalCostAllowed = amountInCNY / (1 + profitMargin / 100);
+    const maxProcurementCost = totalCostAllowed - fixedCosts;
 
-    // 8. 反推出最大可接受的采购成本
-    const maxProcurementCost = amountInCNY - fixedCosts - requiredProfit;
+    // 8. 计算推广费ROI - 使用简单准确的方法
+    const promotionFeeLocal = sellingPrice * (promotionRate / 100);
+    const promotionFeeCNY = promotionFeeLocal / exchangeRate;
 
-    // 计算详细费用明细，包含推广费、SFP费
+    // 计算净利润
+    const netProfit = amountInCNY - (maxProcurementCost + fixedCosts);
+
+    // 推广费ROI计算
+    const promotionROI = promotionFeeCNY > 0 ?
+      ((netProfit - promotionFeeCNY) / promotionFeeCNY) * 100 : 0;
+
     const region = this.currentRegion;
     const details = {
-      // 收入相关
       sellingPrice,
       sellingPriceCNY: sellingPrice / exchangeRate,
-
-      // 费用明细（当地货币），包含推广费、SFP费
       platformCommission: sellingPrice * (platformCommission / 100),
       influencerCommission: sellingPrice * (influencerCommission / 100),
-      promotionFee: sellingPrice * (promotionRate / 100), // 推广费计算
-      sfpFee: sellingPrice * (sfpRate / 100),            // SFP费计算
+      promotionFee: promotionFeeLocal,
+      sfpFee: sellingPrice * (sfpRate / 100),
       processingFee: sellingPrice * (processingFee / 100),
       tax: sellingPrice * (taxRate / 100),
       otherFee: sellingPrice * (otherFee / 100),
       withdrawalFee: amountAfterReturns * (withdrawalRate / 100),
-
-      // 成本明细（人民币）及其当地货币等值
       shippingCost,
       shippingCostLocal: shippingCost * exchangeRate,
       packagingCost,
@@ -231,8 +233,6 @@ class EnhancedCostCalculator extends React.Component {
       otherCostLocal: otherCost * exchangeRate,
       fixedCosts,
       fixedCostsLocal: fixedCosts * exchangeRate,
-
-      // 中间计算结果（双币种）
       amountAfterFees,
       amountAfterFeesCNY: amountAfterFees / exchangeRate,
       amountAfterReturns,
@@ -240,27 +240,27 @@ class EnhancedCostCalculator extends React.Component {
       amountAfterWithdrawal,
       amountAfterWithdrawalCNY: amountAfterWithdrawal / exchangeRate,
       amountInCNY,
-      requiredProfit,
-      requiredProfitLocal: requiredProfit * exchangeRate,
-
-      // 最终结果（双币种）
+      requiredProfit: totalCostAllowed * (profitMargin / 100),
+      requiredProfitLocal: totalCostAllowed * (profitMargin / 100) * exchangeRate,
+      promotionFeeCNY: promotionFeeCNY,
+      promotionROI: promotionROI,
       maxProcurementCost,
       maxProcurementCostLocal: maxProcurementCost * exchangeRate,
       totalCost: maxProcurementCost + fixedCosts,
       totalCostLocal: (maxProcurementCost + fixedCosts) * exchangeRate,
-      netProfit: amountInCNY - (maxProcurementCost + fixedCosts),
-      netProfitLocal: (amountInCNY - (maxProcurementCost + fixedCosts)) * exchangeRate,
-      roi: ((amountInCNY - (maxProcurementCost + fixedCosts)) / (maxProcurementCost + fixedCosts) * 100) || 0
+      netProfit: netProfit,
+      netProfitLocal: netProfit * exchangeRate,
+      targetProfitMargin: profitMargin
     };
 
     this.setState({
-      calculatedCost: Math.max(0, maxProcurementCost), // 确保成本不为负数
+      calculatedCost: Math.max(0, maxProcurementCost),
       calculationDetails: details
     });
   }
 
   render() {
-    const { 
+    const {
       isLoading, lastUpdated, sellingPrice, calculatedCost,
       calculationDetails, promotionRate, sfpRate
     } = this.state;
@@ -272,8 +272,8 @@ class EnhancedCostCalculator extends React.Component {
       <div className="basic-cost-calculator">
         <div className="calculator-header">
           <h2>采购成本反推计算器</h2>
-          <button 
-            className="reset-button" 
+          <button
+            className="reset-button"
             onClick={this.resetAllData}
           >
             重置
@@ -529,7 +529,7 @@ class EnhancedCostCalculator extends React.Component {
           {calculationDetails && (
             <div className="result-section">
               <h3>计算结果</h3>
-              
+
               <div className="key-result">
                 <span className="result-label">最大可接受采购成本:</span>
                 <div className="result-value">
@@ -537,14 +537,13 @@ class EnhancedCostCalculator extends React.Component {
                     {calculatedCost.toFixed(2)} 人民币
                   </div>
                   <div className="secondary-currency">
-                    {currencySymbol}{calculationDetails.maxProcurementCostLocal.toFixed(2)} {currencyCode}
+                    {currencySymbol}{calculationDetails.maxProcurementCostLocal && calculationDetails.maxProcurementCostLocal.toFixed(2)} {currencyCode}
                   </div>
                 </div>
               </div>
 
               <div className="result-details">
                 <h4>详细计算 (双币种显示):</h4>
-                
                 <div className="detail-group">
                   <h5>收入情况</h5>
                   <div className="detail-item">
@@ -657,26 +656,33 @@ class EnhancedCostCalculator extends React.Component {
                   <div className="detail-item">
                     <span>目标利润:</span>
                     <div className="dual-currency-display">
-                      <div className="primary">{calculationDetails.requiredProfit.toFixed(2)} 人民币</div>
-                      <div className="secondary">{currencySymbol}{calculationDetails.requiredProfitLocal.toFixed(2)} {currencyCode}</div>
+                      <div className="primary">{calculationDetails.requiredProfit && calculationDetails.requiredProfit.toFixed(2)} 人民币</div>
+                      <div className="secondary">{currencySymbol}{calculationDetails.requiredProfitLocal && calculationDetails.requiredProfitLocal.toFixed(2)} {currencyCode}</div>
                     </div>
                   </div>
                   <div className="detail-item">
                     <span>实际净利润:</span>
                     <div className={`dual-currency-display ${calculationDetails.netProfit >= 0 ? 'profit-positive' : 'profit-negative'}`}>
                       <div className="primary">
-                        {calculationDetails.netProfit >= 0 ? '+' : ''}{calculationDetails.netProfit.toFixed(2)} 人民币
+                        {calculationDetails.netProfit >= 0 ? '+' : ''}{calculationDetails.netProfit && calculationDetails.netProfit.toFixed(2)} 人民币
                       </div>
                       <div className="secondary">
-                        {calculationDetails.netProfit >= 0 ? '+' : ''}{currencySymbol}{calculationDetails.netProfitLocal.toFixed(2)} {currencyCode}
+                        {calculationDetails.netProfit >= 0 ? '+' : ''}{currencySymbol}{calculationDetails.netProfitLocal && calculationDetails.netProfitLocal.toFixed(2)} {currencyCode}
                       </div>
                     </div>
                   </div>
                   <div className="detail-item">
-                    <span>投资回报率 (ROI):</span>
-                    <span className={calculationDetails.roi >= 0 ? 'profit-positive' : 'profit-negative'}>
-                      {calculationDetails.roi.toFixed(2)}%
+                    <span>推广费ROI:</span>
+                    <span className={calculationDetails.promotionROI >= 0 ? 'profit-positive' : 'profit-negative'}>
+                      {(calculationDetails.promotionROI && calculationDetails.promotionROI.toFixed(2)) || '0.00'}%
                     </span>
+                  </div>
+                  <div className="detail-item">
+                    <span>推广费用:</span>
+                    <div className="dual-currency-display">
+                      <div className="primary">{(calculationDetails.promotionFeeCNY && calculationDetails.promotionFeeCNY.toFixed(2)) || '0.00'} 人民币</div>
+                      <div className="secondary">{currencySymbol}{(calculationDetails.promotionFee && calculationDetails.promotionFee.toFixed(2)) || '0.00'} {currencyCode}</div>
+                    </div>
                   </div>
                 </div>
               </div>
