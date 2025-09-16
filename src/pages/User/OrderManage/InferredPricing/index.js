@@ -734,7 +734,7 @@ const showRegularShipping =
   </div>
 </div>
 
-// 在店铺类型之后添加包裹设置（仅对特定地区显示）
+{/* // 在店铺类型之后添加包裹设置（仅对特定地区显示） */}
 {['JP', 'UK', 'DE', 'FR', 'IT', 'ES'].includes(this.state.selectedRegion) && 
  this.state.shopType === 'crossBorder' && (
   <div className="section-card">

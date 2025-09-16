@@ -32,7 +32,7 @@ const menuList = [
         ]
     },
     {
-        title: '产品管理',
+        title: '国内平台',
         key: '/user/goods',
         children:[
             {

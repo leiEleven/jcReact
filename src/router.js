@@ -72,7 +72,7 @@ const routes = [
                 path: '/user/goods',
                 component: SecondLevelComponent,
                 pathName: 'goods',
-                name: '产品管理',
+                name: '国内平台',
                 icon: 'user',
                 children: [
                     {
