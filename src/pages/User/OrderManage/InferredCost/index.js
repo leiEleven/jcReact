@@ -470,7 +470,7 @@ class EnhancedCostCalculator extends React.Component {
                   max="100"
                   step="0.1"
                 />
-                <small>亚马逊SFP配送相关费用比例</small>
+                <small>SFP配送相关费用比例</small>
               </div>
 
               <div className="input-group">
