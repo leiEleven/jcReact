@@ -21,17 +21,7 @@ const localUsers = {
           "index",
           "order-manage",
 
-          "product-manage",
-          "product-list",
-          "review-manage",
-          "return-goods",
-          "goods",
-          "goods-list",
-          "goods-classify",
-          "permission",
-          "user-manage",
-          "role-manage",
-          "menu-manage"
+
         ]
       }
     }

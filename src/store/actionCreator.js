@@ -6,12 +6,6 @@ import routes from '../router'
 import { filterRoutes } from '../utils'
 import { recursionRouterThree } from '../utils/recursion-router'
 
-// export const doAuthChangeAction = (res) => {
-//     return {
-//         type:AUTH_CHANGE,
-//         authStatus:res
-//     }
-// }
 export const doAuthChangeAction = createActions(
     {
         [AUTH_CHANGE]:(res) => {
@@ -56,14 +50,14 @@ export const permissionAction = (path) => {
                     "name": "admin",
                     "roles": ["admin"],
                     "data": [
-
                         "inferred-pricing",
                         "inferred-cost",
-
+                        "index", 
+                        "order-manage",  
+                        "goods", 
+                        "goods-list", 
+                        "goods-classify", 
                         
-                        "index", "order-manage", "product-manage", "product-list", 
-                        "review-manage",  "goods", "goods-list", "goods-classify", 
-                        "permission", "user-manage", "role-manage", "menu-manage"
                     ]
                 }
             },
