@@ -53,11 +53,11 @@ export const permissionAction = (path) => {
                         "inferred-pricing",
                         "inferred-cost",
                         "index", 
-                        "order-manage",  
-                        "goods", 
-                        "goods-list", 
-                        "goods-classify", 
-                        
+                        "tiktok",  
+                        "domestic-taobao", 
+                        "domestic-other",   
+                        "domestic"
+                                          
                     ]
                 }
             },
@@ -68,7 +68,9 @@ export const permissionAction = (path) => {
                     "name": "user",
                     "roles": ["user"],
                     "data": [
-                        "index", "order-list", "product-list", "goods-list"
+                        "index", "order-list", "product-list", "goods-list",
+                        "domestic-taobao", 
+                        "domestic-other",
                     ]
                 }
             }

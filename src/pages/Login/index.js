@@ -19,7 +19,7 @@ const localUsers = {
         "data": [
           "inferred-pricing",
           "index",
-          "order-manage",
+          "tiktok",
 
 
         ]

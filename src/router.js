@@ -2,10 +2,10 @@
 // import Login from './pages/Login'
 // import User from './pages/User'
     // import Index from './pages/User/Home'
-        import GoodsList from './pages/User/Goods/GoodsList'
-        import GoodsClassify from './pages/User/Goods/GoodsClassify'
-        import InferredPricing from './pages/User/OrderManage/InferredPricing'
-        import InferredCost from './pages/User/OrderManage/InferredCost'
+        import Domestictaobao from './pages/User/Domestic/Domestictaobao'
+        import DomesticOther from './pages/User/Domestic/DomesticOther'
+        import InferredPricing from './pages/User/Tiktok/InferredPricing'
+        import InferredCost from './pages/User/Tiktok/InferredCost'
 // import NotFound from './pages/NotFound'
 
 // import SecondLevelComponent from './common/SecondLevelComponent'
@@ -48,7 +48,7 @@ const routes = [
             {
                 path: '/user/tiktok',
                 component: SecondLevelComponent,
-                pathName: 'order-manage',
+                pathName: 'tiktok',
                 name: 'Tiktok管理',
                 icon: 'eye',
                 children: [
@@ -69,24 +69,24 @@ const routes = [
                 ]
             },
             {
-                path: '/user/goods',
+                path: '/user/domestic',
                 component: SecondLevelComponent,
-                pathName: 'goods',
+                pathName: 'domestic',
                 name: '国内平台',
                 icon: 'user',
                 children: [
                     {
-                        path: '/user/goods/list',
-                        pathName: 'goods-list',
-                        component: GoodsList,
-                        name: '产品列表',
+                        path: '/user/domestic/taobao',
+                        pathName: 'domestic-taobao',
+                        component: Domestictaobao,
+                        name: '淘宝定价',
                         icon: 'table'
                     },
                     {
-                        path: '/user/goods/classify',
-                        pathName: 'goods-classify',
-                        component: GoodsClassify,
-                        name: '产品分类',
+                        path: '/user/domestic/other',
+                        pathName: 'domestic-other',
+                        component: DomesticOther,
+                        name: '其他定价',
                         icon: 'eye'
                     }
                 ]

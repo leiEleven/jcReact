@@ -36,5 +36,3 @@
   npm run dll (仅需运行一次)
   npm run build
   
-
-### <a target="_blank" href="http://www.randy168.com">个人博客系统:www.randy168.com</a>
