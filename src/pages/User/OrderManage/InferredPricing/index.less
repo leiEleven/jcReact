@@ -24,145 +24,112 @@
 
 // 基础样式
 .tiktok-calculator {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: @spacing-lg;
-  background-color: @background-color;
-  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: @text-primary;
-  line-height: 1.5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: @spacing-lg;
+    background-color: @background-color;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: @text-primary;
+    line-height: 1.5;
 }
 
 // 头部样式
 
 
 .calculator-header {
-  /* 使用flex布局实现标题居中，按钮居右 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; /* 为按钮绝对定位提供参考 */
-  width: 100%; /* 确保占满父容器宽度 */
-  padding: 16px; /* 适当的内边距 */
-  box-sizing: border-box; /* 确保padding不会增加总宽度 */
+    /* 使用flex布局实现标题居中，按钮居右 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* 为按钮绝对定位提供参考 */
+    width: 100%;
+    /* 确保占满父容器宽度 */
+    padding: 16px;
+    /* 适当的内边距 */
+    box-sizing: border-box;
+    /* 确保padding不会增加总宽度 */
 
-  .titleName {
-    margin: 0; /* 清除默认margin */
-    font-size: 18px; /* 可根据需要调整标题大小 */
-    color: @primary-color;
-  }
-
-  .reset-btn {
-    position: absolute; /* 绝对定位到右侧 */
-    right: 16px; /* 右侧距离 */
-    padding: 6px 12px; /* 按钮内边距 */
-    background-color: #f0f0f0; /* 按钮背景色 */
-    border: 1px solid #ddd; /* 按钮边框 */
-    border-radius: 4px; /* 圆角 */
-    cursor: pointer; /* 鼠标悬停时显示手型 */
-    font-size: 14px; /* 按钮文字大小 */
-    transition: all 0.2s; /* 过渡效果 */
-     background-color: @accent-color;
-    color: white;
-   
-
-    &:hover {
-      background-color: #e0e0e0; /* 悬停时背景色变化 */
+    .titleName {
+        margin: 0;
+        /* 清除默认margin */
+        font-size: 18px;
+        /* 可根据需要调整标题大小 */
+        color: @primary-color;
     }
-  }
+
+    .reset-btn {
+        position: absolute;
+        /* 绝对定位到右侧 */
+        right: 16px;
+        /* 右侧距离 */
+        padding: 6px 12px;
+        /* 按钮内边距 */
+        background-color: #f0f0f0;
+        /* 按钮背景色 */
+        border: 1px solid #ddd;
+        /* 按钮边框 */
+        border-radius: 4px;
+        /* 圆角 */
+        cursor: pointer;
+        /* 鼠标悬停时显示手型 */
+        font-size: 14px;
+        /* 按钮文字大小 */
+        transition: all 0.2s;
+        /* 过渡效果 */
+        background-color: @accent-color;
+        color: white;
+
+
+        &:hover {
+            background-color: #e0e0e0;
+            /* 悬停时背景色变化 */
+        }
+    }
 }
 
 
 // 内容区域样式
 .calculator-content {
-  display: grid;
-  gap: @spacing-lg;
+    display: grid;
+    gap: @spacing-lg;
 }
 
 // 卡片样式
 .section-card {
-  background-color: @card-background;
-  border-radius: @border-radius;
-  padding: @spacing-lg;
-  box-shadow: @card-shadow;
-  transition: transform @transition-speed;
+    background-color: @card-background;
+    border-radius: @border-radius;
+    padding: @spacing-lg;
+    box-shadow: @card-shadow;
+    transition: transform @transition-speed;
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  }
-
-  .section-title {
-    margin-top: 0;
-    margin-bottom: @spacing-md;
-    color: @primary-color;
-    font-size: 18px;
-    font-weight: 600;
-    padding-bottom: @spacing-sm;
-    border-bottom: 1px solid @border-color;
-  }
-
-  .shop-type-selector{
-    label{
-        margin-left: 20px;
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
-  }
-  .package-size-selector{
-    display: inline-block;
-    margin-right: 20px;
-  font-size: 14px;
-    color: #666666;
 
-  }
-  .small-package-details{
-  display: inline-block;
-      margin-right: 20px;
-  font-size: 14px;
-    color: #666666;
-  }
-  .cargo-type-selector{
-   display: inline-block;
-       margin-right: 20px;
-  font-size: 14px;
-    color: #666666;
-  }
-  .weight-input{
-    display: inline-block;
-        margin-right: 20px;
-  font-size: 14px;
-    color: #666666;
-    .shipping-formula-display {
-  margin-top: 8px;
-  margin-left: 10px;
-  padding: 8px;
-  background-color: #f0f9ff;
-  border: 1px solid #91d5ff;
-  border-radius: 4px;
-  font-size: 12px;
-    display: inline-block;
-  
-  .formula {
-    color: #1890ff;
-    font-weight: 500;
-  
+    .section-title {
+        margin-top: 0;
+        margin-bottom: @spacing-md;
+        color: @primary-color;
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: @spacing-sm;
+        border-bottom: 1px solid @border-color;
+    }
 
-  }
-}
-  }
-}
+    .shop-type-selector {
+        label {
+            margin-left: 20px;
+        }
+    }
 
-// 地区和汇率部分
-.region-rate-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    .package-settings {
+  display: flex;
+  flex-direction: column;
   gap: @spacing-md;
 
-//   @media (max-width: 768px) {
-//     grid-template-columns: 1fr;
-//   }
-
-  .region-selector,
-  .rate-display {
+  .package-size-selector {
     display: flex;
     flex-direction: column;
     gap: @spacing-sm;
@@ -172,34 +139,14 @@
       color: @text-secondary;
       font-size: 14px;
     }
-  }
 
-  .region-dropdown {
-    padding: 10px 12px;
-    border: 1px solid @border-color;
-    border-radius: @border-radius;
-    background-color: @input-background;
-    font-size: 14px;
-    transition: border-color @transition-speed;
-
-    &:focus {
-      border-color: @primary-color;
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-    }
-  }
-
-  .rate-input-container {
-    display: flex;
-    gap: @spacing-sm;
-
-    .rate-input {
-      flex: 1;
+    select {
       padding: 10px 12px;
       border: 1px solid @border-color;
       border-radius: @border-radius;
       background-color: @input-background;
       font-size: 14px;
+      transition: border-color @transition-speed;
 
       &:focus {
         border-color: @primary-color;
@@ -207,311 +154,458 @@
         box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
       }
     }
+  }
 
-    .refresh-btn {
-      padding: 0 12px;
-      background-color: @secondary-color;
-      color: white;
-      border: none;
-      border-radius: @border-radius;
-      cursor: pointer;
-      transition: all @transition-speed;
+  .small-package-details {
+    display: flex;
+    flex-direction: column;
+    gap: @spacing-md;
+    padding: @spacing-md;
+    border: 1px solid @border-color;
+    border-radius: @border-radius;
 
-      &:hover {
-        background-color: @primary-color;
+
+    .cargo-type-selector {
+      display: flex;
+      flex-direction: column;
+      gap: @spacing-sm;
+
+      label {
+        font-weight: 500;
+        color: @text-secondary;
+        font-size: 14px;
       }
 
-      &:disabled {
-        background-color: @text-tertiary;
-        cursor: not-allowed;
+      select {
+        padding: 10px 12px;
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        background-color: @input-background;
+        font-size: 14px;
+        transition: border-color @transition-speed;
+
+        &:focus {
+          border-color: @primary-color;
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+      }
+    }
+
+    .weight-input {
+      display: flex;
+      flex-direction: column;
+      gap: @spacing-sm;
+
+      label {
+        font-weight: 500;
+        color: @text-secondary;
+        font-size: 14px;
+      }
+
+      input {
+        padding: 10px 12px;
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        background-color: @input-background;
+        font-size: 14px;
+        transition: border-color @transition-speed;
+
+        &:focus {
+          border-color: @primary-color;
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+      }
+
+      .shipping-formula-display {
+        margin-top: @spacing-xs;
+        
+        .formula {
+          font-size: 12px;
+          color: @primary-color;
+          font-weight: 500;
+          padding: 4px 8px;
+          background-color: fade(@primary-color, 10%);
+          border-radius: @border-radius;
+        }
       }
     }
   }
+}
+    
+}
 
-  .rate-info {
-    margin-top: @spacing-xs;
-    font-size: 12px;
-    color: @text-tertiary;
-  }
+// 地区和汇率部分
+.region-rate-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: @spacing-md;
+
+    //   @media (max-width: 768px) {
+    //     grid-template-columns: 1fr;
+    //   }
+
+    .region-selector,
+    .rate-display {
+        display: flex;
+        flex-direction: column;
+        gap: @spacing-sm;
+
+        label {
+            font-weight: 500;
+            color: @text-secondary;
+            font-size: 14px;
+        }
+    }
+
+    .region-dropdown {
+        padding: 10px 12px;
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        background-color: @input-background;
+        font-size: 14px;
+        transition: border-color @transition-speed;
+
+        &:focus {
+            border-color: @primary-color;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+    }
+
+    .rate-input-container {
+        display: flex;
+        gap: @spacing-sm;
+
+        .rate-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            background-color: @input-background;
+            font-size: 14px;
+
+            &:focus {
+                border-color: @primary-color;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+            }
+        }
+
+        .refresh-btn {
+            padding: 0 12px;
+            background-color: @secondary-color;
+            color: white;
+            border: none;
+            border-radius: @border-radius;
+            cursor: pointer;
+            transition: all @transition-speed;
+
+            &:hover {
+                background-color: @primary-color;
+            }
+
+            &:disabled {
+                background-color: @text-tertiary;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .rate-info {
+        margin-top: @spacing-xs;
+        font-size: 12px;
+        color: @text-tertiary;
+    }
 }
 
 // 平台费用网格
 .platform-fees-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: @spacing-md;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: @spacing-md;
 
-  .fee-input {
-    display: flex;
-    flex-direction: column;
-    gap: @spacing-xs;
+    .fee-input {
+        display: flex;
+        flex-direction: column;
+        gap: @spacing-xs;
 
-    label {
-      font-size: 14px;
-      color: @text-secondary;
+        label {
+            font-size: 14px;
+            color: @text-secondary;
+        }
+
+        .fee-input-field {
+            padding: 8px 12px;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            background-color: @input-background;
+            font-size: 14px;
+            transition: border-color @transition-speed;
+
+            &:focus {
+                border-color: @primary-color;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+            }
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: @text-tertiary;
+            margin-top: 2px;
+        }
     }
-
-    .fee-input-field {
-      padding: 8px 12px;
-      border: 1px solid @border-color;
-      border-radius: @border-radius;
-      background-color: @input-background;
-      font-size: 14px;
-      transition: border-color @transition-speed;
-
-      &:focus {
-        border-color: @primary-color;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-      }
-    }
-
-    .help-text {
-      font-size: 12px;
-      color: @text-tertiary;
-      margin-top: 2px;
-    }
-  }
 }
 
 // 成本输入网格
 .cost-inputs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: @spacing-md;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: @spacing-md;
 
-  .cost-input {
-    display: flex;
-    flex-direction: column;
-    gap: @spacing-xs;
+    .cost-input {
+        display: flex;
+        flex-direction: column;
+        gap: @spacing-xs;
 
-    label {
-      font-size: 14px;
-      color: @text-secondary;
+        label {
+            font-size: 14px;
+            color: @text-secondary;
+        }
+
+        .currency-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cost-input-field {
+            padding: 8px 12px;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            background-color: @input-background;
+            font-size: 14px;
+            transition: border-color @transition-speed;
+
+            &:focus {
+                border-color: @primary-color;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+            }
+        }
+
+        .currency-conversion {
+            font-size: 12px;
+            color: @text-tertiary;
+            margin-left: 4px;
+        }
     }
-
-    .currency-input-container {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .cost-input-field {
-      padding: 8px 12px;
-      border: 1px solid @border-color;
-      border-radius: @border-radius;
-      background-color: @input-background;
-      font-size: 14px;
-      transition: border-color @transition-speed;
-
-      &:focus {
-        border-color: @primary-color;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-      }
-    }
-
-    .currency-conversion {
-      font-size: 12px;
-      color: @text-tertiary;
-      margin-left: 4px;
-    }
-  }
 }
 
 // 其他设置网格
 .other-settings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: @spacing-md;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: @spacing-md;
 
-  .setting-input {
-    display: flex;
-    flex-direction: column;
-    gap: @spacing-xs;
+    .setting-input {
+        display: flex;
+        flex-direction: column;
+        gap: @spacing-xs;
 
-    label {
-      font-size: 14px;
-      color: @text-secondary;
+        label {
+            font-size: 14px;
+            color: @text-secondary;
+        }
+
+        .setting-input-field {
+            padding: 8px 12px;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            background-color: @input-background;
+            font-size: 14px;
+            transition: border-color @transition-speed;
+
+            &:focus {
+                border-color: @primary-color;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+            }
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: @text-tertiary;
+            margin-top: 2px;
+        }
     }
-
-    .setting-input-field {
-      padding: 8px 12px;
-      border: 1px solid @border-color;
-      border-radius: @border-radius;
-      background-color: @input-background;
-      font-size: 14px;
-      transition: border-color @transition-speed;
-
-      &:focus {
-        border-color: @primary-color;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-      }
-    }
-
-    .help-text {
-      font-size: 12px;
-      color: @text-tertiary;
-      margin-top: 2px;
-    }
-  }
 }
 
 // 计算部分
 .calculation-section {
-  background-color: @card-background;
-  border-radius: @border-radius;
-  padding: @spacing-lg;
-  box-shadow: @card-shadow;
-
-  .calculate-btn {
-    background-color: @primary-color;
-    color: white;
-    border: none;
-    padding: 12px 24px;
+    background-color: @card-background;
     border-radius: @border-radius;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all @transition-speed;
-    margin-bottom: @spacing-lg;
+    padding: @spacing-lg;
+    box-shadow: @card-shadow;
 
-    &:hover {
-      background-color: darken(@primary-color, 10%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 102, 204, 0.2);
-    }
-  }
-
-// 计算结果区域
-.calculation-result {
-  border-top: 1px solid @border-color;
-  padding-top: @spacing-md;
-
-  h4 {
-    margin-top: 0;
-    color: @primary-color;
-    font-size: 16px;
-    margin-bottom: @spacing-md;
-  }
-
-  .result-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: @spacing-md;
-    padding-bottom: @spacing-md;
-    border-bottom: 1px solid @border-color;
-
-    .result-label {
-      font-weight: 600;
-      font-size: 16px;
+    .calculate-btn {
+        background-color: @primary-color;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: @border-radius;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all @transition-speed;
+        margin-bottom: @spacing-lg;
+display: block;
+    margin: 0 auto;
+        &:hover {
+            background-color: darken(@primary-color, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 102, 204, 0.2);
+        }
     }
 
-    .result-value-group {
-      text-align: right;
-
-      .primary-currency {
-        font-size: 20px;
-        font-weight: 700;
-        color: @primary-color;
-      }
-
-      .cny-conversion {
-        font-size: 14px;
-        color: @text-tertiary;
-        margin-left: @spacing-sm;
-      }
-    }
-  }
-
-  .result-details {
-    .detail-group {
-      display: flex;
-      flex-direction: column;
-      gap: @spacing-md;
-    }
-
-    .detail-label {
-      color: @text-secondary;
-      min-width: 120px;
-      display: inline-block;
-    }
-
-    .detail-section-header {
-      font-weight: 600;
-      color: @text-secondary;
-      font-size: 14px;
-      margin: @spacing-sm 0;
-    }
-
-    // 成本明细：3 列网格
-    .detail-grid.cost-grid {
-    //   display: grid;
-    //   grid-template-columns: repeat(3, 1fr);
-      gap: @spacing-sm;
-    }
-
-    // 费用明细：4 列网格
-    .detail-grid.fee-grid {
-    //   display: grid;
-    //   grid-template-columns: repeat(4, 1fr);
-      gap: @spacing-sm;
-    }
-
-    .detail-item {
-    //   display: flex;
-      justify-content: space-between;
-      padding: @spacing-xs 0;
-      font-size: 14px;
-
-      .dual-currency {
-        // display: flex;
-        // flex-direction: column;
-        align-items: flex-end;
-      }
-      .promotion-roi {
-font-weight: 500;
-  margin-left: 4px;
-      }
-
-      .cny-conversion {
-        font-size: 12px;
-        color: @text-tertiary;
-      }
-
-      &.negative {
-        color: @accent-color;
-      }
-
-      &.positive {
-        color: @success-color;
-      }
-
-      &.total {
-        font-weight: 600;
-        margin-top: @spacing-sm;
-        padding-top: @spacing-sm;
+    // 计算结果区域
+    .calculation-result {
         border-top: 1px solid @border-color;
-      }
-    }
+        padding-top: @spacing-md;
 
-    .final-results {
-      margin-top: @spacing-md;
-      padding-top: @spacing-md;
-      border-top: 1px solid @border-color;
-    }
+        h4 {
+            margin-top: 0;
+            color: @primary-color;
+            font-size: 16px;
+            margin-bottom: @spacing-md;
+        }
 
-    .profit-positive {
-      color: @success-color;
-    }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: @spacing-md;
+            padding-bottom: @spacing-md;
+            border-bottom: 1px solid @border-color;
 
-    .profit-negative {
-      color: @accent-color;
+            .result-label {
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            .result-value-group {
+                text-align: right;
+
+                .primary-currency {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: @primary-color;
+                }
+
+                .cny-conversion {
+                    font-size: 14px;
+                    color: @text-tertiary;
+                    margin-left: @spacing-sm;
+                }
+            }
+        }
+
+        .result-details {
+            .detail-group {
+                display: flex;
+                flex-direction: column;
+                gap: @spacing-md;
+            }
+
+            .detail-label {
+                color: @text-secondary;
+                min-width: 120px;
+                display: inline-block;
+            }
+
+            .detail-section-header {
+                font-weight: 600;
+                color: @text-secondary;
+                font-size: 14px;
+                margin: @spacing-sm 0;
+            }
+
+            // 成本明细：3 列网格
+            .detail-grid.cost-grid {
+                //   display: grid;
+                //   grid-template-columns: repeat(3, 1fr);
+                gap: @spacing-sm;
+            }
+
+            // 费用明细：4 列网格
+            .detail-grid.fee-grid {
+                //   display: grid;
+                //   grid-template-columns: repeat(4, 1fr);
+                gap: @spacing-sm;
+            }
+
+            .detail-item {
+                //   display: flex;
+                justify-content: space-between;
+                padding: @spacing-xs 0;
+                font-size: 14px;
+
+                .dual-currency {
+                    // display: flex;
+                    // flex-direction: column;
+                    align-items: flex-end;
+                }
+
+                .promotion-roi {
+                    font-weight: 500;
+                    margin-left: 4px;
+                }
+
+                .cny-conversion {
+                    font-size: 12px;
+                    color: @text-tertiary;
+                }
+
+                &.negative {
+                    color: @accent-color;
+                }
+
+                &.positive {
+                    color: @success-color;
+                }
+
+                &.total {
+                    font-weight: 600;
+                    margin-top: @spacing-sm;
+                    padding-top: @spacing-sm;
+                    border-top: 1px solid @border-color;
+                }
+            }
+
+            .final-results {
+                margin-top: @spacing-md;
+                padding-top: @spacing-md;
+                border-top: 1px solid @border-color;
+            }
+
+            .profit-positive {
+                color: @success-color;
+            }
+
+            .profit-negative {
+                color: @accent-color;
+            }
+        }
     }
-  }
 }
-}
+
+
+
+
+
+
+
 
 
