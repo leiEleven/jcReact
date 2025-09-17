@@ -56,8 +56,9 @@ export const permissionAction = (path) => {
                         "tiktok",  
                         "domestic-taobao", 
                         "domestic-other",   
-                        "domestic"
-                                          
+                        "domestic",
+                        "temu",
+                        "temu-inferred-pricing",
                     ]
                 }
             },
@@ -71,6 +72,8 @@ export const permissionAction = (path) => {
                         "index", "order-list", "product-list", "goods-list",
                         "domestic-taobao", 
                         "domestic-other",
+                        "temu",
+                        "temu-inferred-pricing",
                     ]
                 }
             }

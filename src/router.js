@@ -6,6 +6,7 @@
         import DomesticOther from './pages/User/Domestic/DomesticOther'
         import InferredPricing from './pages/User/Tiktok/InferredPricing'
         import InferredCost from './pages/User/Tiktok/InferredCost'
+        import TemuInferredPricing from './pages/User/Temu/InferredPricong'
 // import NotFound from './pages/NotFound'
 
 // import SecondLevelComponent from './common/SecondLevelComponent'
@@ -88,6 +89,22 @@ const routes = [
                         component: DomesticOther,
                         name: '其他定价',
                         icon: 'eye'
+                    }
+                ]
+            },
+            {
+                path: '/user/temu',
+                component: SecondLevelComponent,
+                pathName: 'temu',
+                name: 'Temu管理',
+                icon: 'apple',
+                children: [
+                    {
+                        path: '/user/temu/pricing',
+                        pathName: 'temu-inferred-pricing',
+                        component: TemuInferredPricing,
+                        name: '定价推算',
+                        icon: 'table'
                     }
                 ]
             },

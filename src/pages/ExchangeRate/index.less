@@ -1,0 +1,212 @@
+.exchange-rate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.exchange-rate-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+
+    h3 {
+      margin: 0;
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #7f8c8d;
+      padding: 4px 8px;
+      border-radius: 4px;
+
+      &:hover {
+        background: #f8f9fa;
+        color: #2c3e50;
+      }
+    }
+  }
+
+  .modal-content {
+    .conversion-inputs {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+
+      .input-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+          font-weight: 500;
+          color: #2c3e50;
+          font-size: 0.9rem;
+        }
+
+        .currency-select {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          font-size: 14px;
+          background: white;
+
+          &:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+          }
+        }
+
+        .amount-input {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          font-size: 16px;
+
+          &:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+          }
+
+          &:read-only {
+            background-color: #f8f9fa;
+            color: #495057;
+          }
+        }
+      }
+
+      .swap-button-container {
+        margin-top: 28px;
+
+        .swap-btn {
+          background: #3498db;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    .exchange-rate-info {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #f8f9fa;
+      border-radius: 8px;
+
+      .loading {
+        color: #7f8c8d;
+        font-style: italic;
+      }
+
+      .rate-display {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .last-updated {
+        font-size: 0.85rem;
+        color: #7f8c8d;
+      }
+    }
+
+    .common-conversions {
+      h4 {
+        margin: 0 0 12px 0;
+        color: #2c3e50;
+        font-size: 1.1rem;
+      }
+
+      .common-rates {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+
+        .common-rate-btn {
+          padding: 8px 12px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          background: white;
+          cursor: pointer;
+          font-size: 0.9rem;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 600px) {
+  .exchange-rate-modal {
+    width: 95%;
+    padding: 16px;
+
+    .modal-content {
+      .conversion-inputs {
+        flex-direction: column;
+        gap: 16px;
+
+        .swap-button-container {
+          margin-top: 0;
+          transform: rotate(90deg);
+        }
+      }
+
+      .common-conversions {
+        .common-rates {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}

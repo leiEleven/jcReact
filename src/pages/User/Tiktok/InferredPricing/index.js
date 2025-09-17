@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './index.less'
-
+import ExchangeRateConverter from '../../../ExchangeRate';
 // TikTok Shop地区数据
 const tiktokRegions = [
     { id: 'US', name: '美国', currency: 'USD', symbol: '$' },
@@ -39,6 +39,8 @@ class InferredPricing extends React.Component {
             packageWeight: 0, // 包裹重量(kg)
             calculatedShippingCost: 0, // 计算出的运费
             smallPackageCost: 0,
+
+            showExchangeModal: false, // 新增：控制汇率弹窗显示状态
             // 平台费用相关状态
             platformCommission: 5, // 平台佣金率（%）
             influencerCommission: 10, // 达人佣金率（%）
@@ -437,6 +439,16 @@ class InferredPricing extends React.Component {
         this.saveData({ profitMargin: margin });
     }
 
+    // 打开汇率换算弹窗
+    openExchangeModal = () => {
+        this.setState({ showExchangeModal: true });
+    }
+
+    // 关闭汇率换算弹窗
+    closeExchangeModal = () => {
+        this.setState({ showExchangeModal: false });
+    }
+
     // 计算定价函数
     calculatePricing = () => {
         const { selectedRegion, shopType, packageSize, exchangeRate } = this.state;
@@ -697,6 +709,13 @@ class InferredPricing extends React.Component {
                                         title="更新汇率"
                                     >
                                         {isLoading ? '🔄' : '↻'}
+                                    </button>
+                                    <button
+                                        onClick={this.openExchangeModal}
+                                        className="exchange-converter-btn"
+                                        title="汇率换算"
+                                    >
+                                        💱
                                     </button>
                                 </div>
                                 {lastUpdated && (
@@ -1320,6 +1339,13 @@ class InferredPricing extends React.Component {
 
                     </div>
                 </div>
+                {/* 新增汇率换算弹窗 */}
+                <ExchangeRateConverter
+                    isOpen={this.state.showExchangeModal}
+                    onClose={this.closeExchangeModal}
+                    initialFromCurrency="CNY"
+                    initialToCurrency={region.currency}
+                />
             </main>
         );
     }
