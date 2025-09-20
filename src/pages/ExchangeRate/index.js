@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './index.less';
 
 // 支持的主要货币
@@ -27,33 +27,49 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
   const [exchangeRate, setExchangeRate] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
+  const [error, setError] = useState('');
 
-  // 获取汇率
-  const fetchExchangeRate = async (from, to) => {
+  // 获取汇率 - 使用useCallback避免不必要的重新创建
+  const fetchExchangeRate = useCallback(async (from, to) => {
     if (from === to) {
       setExchangeRate(1);
       setToAmount(fromAmount);
+      setError('');
       return;
     }
 
     setIsLoading(true);
+    setError('');
+    
     try {
-      const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+      // 使用更可靠的汇率API
+      const response = await fetch(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}`);
       
       if (!response.ok) throw new Error('汇率查询失败');
       
       const data = await response.json();
+      
+      if (!data.success) {
+        throw new Error( '汇率查询失败');
+      }
+      
       const rate = data.rates[to];
+      
+      if (!rate) {
+        throw new Error(`无法获取 ${from} 到 ${to} 的汇率`);
+      }
       
       setExchangeRate(rate);
       setLastUpdated(new Date().toLocaleString());
       
       // 自动计算转换金额
-      if (fromAmount) {
+      if (fromAmount && !isNaN(fromAmount)) {
         setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
       }
     } catch (error) {
       console.error('获取汇率失败:', error);
+      setError(error.message);
+      
       // 使用默认汇率（这里可以设置一些常用货币对的默认汇率）
       const defaultRates = {
         'CNY-USD': 0.14,
@@ -65,7 +81,9 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
         'EUR-CNY': 7.69,
         'GBP-CNY': 9.09,
         'JPY-CNY': 0.065,
-        'BRL-CNY': 1.33
+        'BRL-CNY': 1.33,
+        'USD-JPY': 110.5, // 新增美元对日元
+        'JPY-USD': 0.0091, // 新增日元对美元
       };
       
       const rateKey = `${from}-${to}`;
@@ -73,13 +91,13 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
       setExchangeRate(rate);
       setLastUpdated('本地缓存 ' + new Date().toLocaleString());
       
-      if (fromAmount) {
+      if (fromAmount && !isNaN(fromAmount)) {
         setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
       }
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [fromAmount]);
 
   // 处理货币选择变化
   const handleFromCurrencyChange = (e) => {
@@ -131,7 +149,7 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
     if (isOpen) {
       fetchExchangeRate(initialFromCurrency, initialToCurrency);
     }
-  }, [isOpen, initialFromCurrency, initialToCurrency]);
+  }, [isOpen, initialFromCurrency, initialToCurrency, fetchExchangeRate]);
 
   if (!isOpen) return null;
 
@@ -192,12 +210,17 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
                 onChange={handleToAmountChange}
                 placeholder="结果金额"
                 className="amount-input"
-                readOnly
               />
             </div>
           </div>
 
           <div className="exchange-rate-info">
+            {error && (
+              <div className="error-message">
+                {error}
+              </div>
+            )}
+            
             {isLoading ? (
               <div className="loading">获取汇率中...</div>
             ) : (
@@ -221,7 +244,9 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
                 { from: 'CNY', to: 'USD', label: '人民币 → 美元' },
                 { from: 'USD', to: 'CNY', label: '美元 → 人民币' },
                 { from: 'CNY', to: 'EUR', label: '人民币 → 欧元' },
-                { from: 'CNY', to: 'JPY', label: '人民币 → 日元' }
+                { from: 'CNY', to: 'JPY', label: '人民币 → 日元' },
+                { from: 'USD', to: 'JPY', label: '美元 → 日元' },
+                { from: 'JPY', to: 'USD', label: '日元 → 美元' }
               ].map((pair, index) => (
                 <button
                   key={index}
