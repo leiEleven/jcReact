@@ -87,7 +87,7 @@ const routes = [
                         path: '/user/domestic/other',
                         pathName: 'domestic-other',
                         component: DomesticOther,
-                        name: '其他定价',
+                        name: 'Ozon',
                         icon: 'eye'
                     }
                 ]

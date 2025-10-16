@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "001",
+    "name": "Красота ",
+    "cnName": "美容",
+    "enName": "cosmetology",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096215,
+    "children": [
+      {
+        "id": "010",
+        "name": " Красота и здоровье ",
+        "cnName": "美容与健康",
+        "enName": "Beauty and Health",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027489"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "011",
+        "name": " Косметическое оборудование ",
+        "cnName": "美容设备",
+        "enName": "Beauty equipment",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027489_59968946"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "012",
+        "name": " Профессиональные косметические приборы ",
+        "cnName": "专业美容设备",
+        "enName": "Professional beauty equipment",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.0750,\"fbp_fee\":0.0650,\"fbs_fee\":0.0750,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0750,\"fbp_fee\":0.0650,\"fbs_fee\":0.0750,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0750,\"fbp_fee\":0.0650,\"fbs_fee\":0.0750,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200000122"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "013",
+        "name": " Одежда и аксессуары ",
+        "cnName": "服装和配饰",
+        "enName": "clothes& decoration ",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2050,\"fbp_fee\":0.1950,\"fbs_fee\":0.2050,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621031",
+          "17027493_17027899",
+          "17027493_17027904",
+          "17027493_17027929",
+          "17027493_29183107"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "014",
+        "name": " Сезонная одежда и аксессуары ",
+        "cnName": "季节性服装及配饰",
+        "enName": "Seasonal clothing and accessories",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2050,\"fbp_fee\":0.1950,\"fbs_fee\":0.2050,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200001546_971093239"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "015",
+        "name": " Обувь ",
+        "cnName": "鞋类",
+        "enName": "footwear",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621032"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "016",
+        "name": " Сезонная обувь ",
+        "cnName": "季节性鞋类",
+        "enName": "Seasonal footwear",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "017",
+        "name": " Нижнее белье и трикотажные носки ",
+        "cnName": "内衣和袜类产品",
+        "enName": "Underwear and knitted socks",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2250,\"fbp_fee\":0.2150,\"fbs_fee\":0.2250,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "018",
+        "name": " Сезонное белье и чулки ",
+        "cnName": "季节性内衣和袜类产品",
+        "enName": "Seasonal underwear and woven socks",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2250,\"fbp_fee\":0.2150,\"fbs_fee\":0.2250,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "019",
+        "name": " Ювелирные изделия ",
+        "cnName": "珠宝",
+        "enName": "Jewelry and Jewelry",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "76902590"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "118",
+        "name": "Пальто",
+        "cnName": "外衣",
+        "enName": "coat",
+        "level": "2",
+        "pid": "001",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621031_200000933_970877689"
+        ],
+        "updateTime": 1754531388,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "name": " Электронная продукция ",
+    "cnName": "电子产品",
+    "enName": "electronic product",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "020",
+        "name": " Электрическая арматура ",
+        "cnName": "电子产品配饰",
+        "enName": "Electrical accessories",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028936",
+          "15621042_17028627_95777"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "021",
+        "name": " Доаксессуары Dyson ",
+        "cnName": "戴森配件",
+        "enName": "Dyson accessories",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "022",
+        "name": " Запасные части для аудиооборудования и аудио - и видеооборудования ",
+        "cnName": "音频和视频设备配件",
+        "enName": "Audio devices and accessories for audio and video devices",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_95617422",
+          "92130764",
+          "99999999_17027903"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "024",
+        "name": " Запасные части для компьютерного оборудования ",
+        "cnName": "电脑设备配件",
+        "enName": "Computer equipment spare parts",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1350,\"fbp_fee\":0.1250,\"fbs_fee\":0.1350,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1350,\"fbp_fee\":0.1250,\"fbs_fee\":0.1350,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_60358593"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "025",
+        "name": " Компоненты настольных и портативных компьютеров ",
+        "cnName": "电脑及笔记本配件",
+        "enName": "Desktop and laptop components",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_60358593",
+          "15621042_17028613_971480030",
+          "15621042_17028613_971480030",
+          "15621042_17028921_970619455",
+          "15621042_17028922_970804067",
+          "15621042_53567477_970997380",
+          "15621042_60358593_970665294",
+          "15621042_60358593_970938796",
+          "17027491_17028708_95973"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "026",
+        "name": " Компьютерное офисное оборудование, кассовое и складское оборудование ",
+        "cnName": "办公电脑设备、收银及仓储设备",
+        "enName": "Computer office equipment, cashier and warehouse equipment",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_44082285_98236",
+          "15621042_44082285_98308"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "027",
+        "name": " Игровые приставки и аксессуары, фотооборудование ",
+        "cnName": "游戏主机及配件、摄影器材",
+        "enName": "Game consoles and accessories, photography equipment",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028632",
+          "15621042_17028633",
+          "15621042_17028633_971062474",
+          "15621042_17028632_99088",
+          "17027482_17027923_94890",
+          "15621042_17028647",
+          "15621042_17028647_98554",
+          "15621042_17028647_99013",
+          "15621042_17028650_97022",
+          "15621042_17028935_970996945",
+          "17027490_17028994_93855",
+          "52265716_200001535_971826331"
+        ],
+        "updateTime": 1754531388,
+        "children": null
+      },
+      {
+        "id": "031",
+        "name": " Программное обеспечение ",
+        "cnName": "软件",
+        "enName": "software",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1850,\"fbp_fee\":0.1750,\"fbs_fee\":0.1850,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1850,\"fbp_fee\":0.1750,\"fbs_fee\":0.1850,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "99999999_46590429"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "030",
+        "name": " Компьютеры и расходные материалы ",
+        "cnName": "电脑外设设备及耗材",
+        "enName": "Computer peripherals and consumables",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "029",
+        "name": " Компьютерные игры ",
+        "cnName": "电子游戏",
+        "enName": "video games",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1450,\"fbp_fee\":0.1350,\"fbs_fee\":0.1450,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "99999999_46590429_409596018"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "032",
+        "name": " Монитор ",
+        "cnName": "显示器",
+        "enName": "display",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1250,\"fbp_fee\":0.1150,\"fbs_fee\":0.1250,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028640_970740496",
+          "15621042_17028926_91494",
+          "15621042_44082285_972086317",
+          "17027486_68712678_970950157",
+          "17027491_17028693_971011867",
+          "52265716_200001540_971156406"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "034",
+        "name": " Ноутбук ",
+        "cnName": "笔记本电脑",
+        "enName": "Laptops",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028619_91477"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "039",
+        "name": " Встроенная большая бытовая техника ",
+        "cnName": "嵌入式大型家用电器",
+        "enName": "Built in large household appliances",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027486_200000311",
+          "17027486_17039647",
+          "17027486_17039648",
+          "17027486_68712678"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "035",
+        "name": " Аппаратура Apple ",
+        "cnName": "苹果设备",
+        "enName": "Apple devices",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0700,\"fbp_fee\":0.0600,\"fbs_fee\":0.0700,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0700,\"fbp_fee\":0.0600,\"fbs_fee\":0.0700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0700,\"fbp_fee\":0.0600,\"fbs_fee\":0.0700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "037",
+        "name": " Умные часы и фитнес - браслеты ",
+        "cnName": "智能手表与健身手环",
+        "enName": "Smartwatches and fitness bracelets",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028644"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "038",
+        "name": " Телевизор ",
+        "cnName": "电视机",
+        "enName": "television",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028640_94988"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "033",
+        "name": " Настольные компьютеры ",
+        "cnName": "台式电脑",
+        "enName": "Desktop computer",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "036",
+        "name": " Смартфоны и планшеты ",
+        "cnName": "智能手机和平板电脑",
+        "enName": "Smartphones and tablets",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1150,\"fbp_fee\":0.1050,\"fbs_fee\":0.1150,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_15621050"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "040",
+        "name": " Не встроенная большая бытовая техника ",
+        "cnName": "不可调的大型家用电器",
+        "enName": "Non built-in large household appliances",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0900,\"fbp_fee\":0.0800,\"fbs_fee\":0.0900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027486_17039631",
+          "17027486_17039632",
+          "17027486_17039633",
+          "17027486_17039634",
+          "17027486_17039636",
+          "17027486_17039640",
+          "17027486_17039641",
+          "17027486_17039646",
+          "17027486_200000864",
+          "17027486_89461375"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "041",
+        "name": " Кондиционеры воздуха ",
+        "cnName": "空调设备",
+        "enName": "Air conditioning equipment",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027486_17039635",
+          "17027486_17039622"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "042",
+        "name": " Маленькая бытовая техника ",
+        "cnName": "小型家用电器",
+        "enName": "small home appliances",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027486"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "043",
+        "name": " Оборудование Dyson ",
+        "cnName": "戴森设备",
+        "enName": "Dyson equipment",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "044",
+        "name": " Специализированное медицинское оборудование ",
+        "cnName": "专业医疗设备",
+        "enName": "Professional medical equipment",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200001540"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "045",
+        "name": " Цифровые товары ",
+        "cnName": "数码商品",
+        "enName": "Digital goods",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "047",
+        "name": " Наушники Sony ",
+        "cnName": "索尼耳机",
+        "enName": "Sony earphones",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "052",
+        "name": " Смартфоны и планшеты Samsung ",
+        "cnName": "三星智能手机和平板电脑",
+        "enName": "Samsung smartphones and tablets",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "058",
+        "name": " Наушники Samsung TWS ",
+        "cnName": "三星 TWS 耳机",
+        "enName": "Samsung TWS earphones",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "059",
+        "name": " Умные часы и фитнес - браслеты ",
+        "cnName": "三星智能手表与健身手环",
+        "enName": "Samsung smartwatch and fitness bracelet",
+        "level": "2",
+        "pid": "002",
+        "fee": "[{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0800,\"fbp_fee\":0.0700,\"fbs_fee\":0.0800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531393,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "003",
+    "name": " Домашние и автомобильные принадлежности ",
+    "cnName": "房屋和汽车用品",
+    "enName": "Housing and automotive supplies",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "060",
+        "name": " Дом и сад ",
+        "cnName": "住宅和花园",
+        "enName": "Houses and Gardens",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027494"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "061",
+        "name": " Новогодние аксессуары ",
+        "cnName": "新年装饰用品",
+        "enName": "New Year accessories",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027494_17028733_95451"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "062",
+        "name": " Декорация, уборка и хранение ",
+        "cnName": "装饰、清洁与储物",
+        "enName": "Decoration, cleaning, and storage",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "063",
+        "name": " Производство и техническое обслуживание ",
+        "cnName": "建筑和装修",
+        "enName": "Manufacturing and Maintenance",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027482"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "064",
+        "name": " Декоративные материалы ",
+        "cnName": "装饰材料",
+        "enName": "Decorative materials",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027494_17027906"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "065",
+        "name": " Санитарное оборудование ",
+        "cnName": "卫浴设备",
+        "enName": "did not",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027482_17028737"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "066",
+        "name": " Ручные и измерительные инструменты ",
+        "cnName": "手动工具和测量仪器",
+        "enName": "Manual and measuring tools",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027482_17028653_115949049"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "067",
+        "name": " Водяной фильтр ",
+        "cnName": "水过滤器",
+        "enName": "Water filter",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027494_17027931"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "068",
+        "name": " Оборудование для строительства, ремонта и садоводства ",
+        "cnName": "建筑、修缮和园艺设备",
+        "enName": "Construction, maintenance, and horticultural equipment",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027494"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "069",
+        "name": " Тяжелые здания ",
+        "cnName": "重型建筑",
+        "enName": "Heavy construction",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "070",
+        "name": " Мебель ",
+        "cnName": "家具",
+        "enName": "furniture",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027915"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "071",
+        "name": " Автомобили и мотоциклы ",
+        "cnName": "汽车和摩托车",
+        "enName": "Cars and motorcycles",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "92120918"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "072",
+        "name": " Автомобильные принадлежности ",
+        "cnName": "汽车用品",
+        "enName": "Automotive supplies",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027495"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "073",
+        "name": " Видеорегистраторы и радиолокационные детекторы ",
+        "cnName": "行车记录仪和雷达探测器",
+        "enName": "Video recorders and radar detectors",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027495_17028749_909884",
+          "17027495_17028749_970878192",
+          "17027495_80404590_94743",
+          "17027495_80404590_94744",
+          "17027495_80404590_94745"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "074",
+        "name": " Шины ",
+        "cnName": "轮胎",
+        "enName": "tyre",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027495_17027949"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "075",
+        "name": " Спортивные принадлежности ",
+        "cnName": "运动和休闲用品",
+        "enName": "Sports and leisure products",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1900,\"fbp_fee\":0.1800,\"fbs_fee\":0.1900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1900,\"fbp_fee\":0.1800,\"fbs_fee\":0.1900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "076",
+        "name": " Бассейн ",
+        "cnName": "游泳池",
+        "enName": "swimming pool",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17028691"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "077",
+        "name": " Электрический скутер ",
+        "cnName": "电动滑板车",
+        "enName": "Electric scooter",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17028701_96958"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "078",
+        "name": " Металлоискатель ",
+        "cnName": "金属探测器",
+        "enName": "Metal detector",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_87122370"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "079",
+        "name": " Спортивные часы ",
+        "cnName": "运动手表",
+        "enName": "Sports Watch",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17028708"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "080",
+        "name": " Корабли, двигатели и эхолоты ",
+        "cnName": "船只、马达和充气艇",
+        "enName": "Ships, engines, and echo sounders",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17029003"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "081",
+        "name": " Велосипед ",
+        "cnName": "自行车",
+        "enName": "bicycle",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17028695"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "082",
+        "name": " силовые тренажеры и аэробное оборудование, батут ",
+        "cnName": "力量和心肺训练器材、蹦床",
+        "enName": "Strength trainers and aerobic equipment, trampoline",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200001540_970731377",
+          "17027488_17028681_92985",
+          "17027491_17028706_971278444",
+          "17027491_89293457_115949583",
+          "17027491_89293457_84867453"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "083",
+        "name": " Книги ",
+        "cnName": "书籍",
+        "enName": "book",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.2200,\"fbp_fee\":0.2100,\"fbs_fee\":0.2200,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2200,\"fbp_fee\":0.2100,\"fbs_fee\":0.2200,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "200001482"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "084",
+        "name": " Электронные книги ",
+        "cnName": "数字图书",
+        "enName": "electronic text",
+        "level": "2",
+        "pid": "003",
+        "fee": "[{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621042_17028618"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "004",
+    "name": " Медицинские товары ",
+    "cnName": "医药商品",
+    "enName": "Medical products",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "085",
+        "name": " Аптеки ",
+        "cnName": "药用制剂",
+        "enName": "pharmacy",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.0300,\"fbp_fee\":0.0200,\"fbs_fee\":0.0300,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0300,\"fbp_fee\":0.0200,\"fbs_fee\":0.0300,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0300,\"fbp_fee\":0.0200,\"fbs_fee\":0.0300,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "086",
+        "name": " Витамины и пищевые добавки ",
+        "cnName": "维生素和膳食补充剂",
+        "enName": "Vitamins and dietary supplements",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200000896"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "087",
+        "name": " Лекарства ",
+        "cnName": "药品",
+        "enName": "drug",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "088",
+        "name": " ортопедический аппарат ",
+        "cnName": "矫形用品",
+        "enName": "orthosis",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "15621032_15621048_970584984",
+          "15621032_15621049_970584984",
+          "17027487_17028669_95938",
+          "17027494_17028729_92618",
+          "17027915_17027917_970861826",
+          "17027915_79164512_97582",
+          "52265716_200001548_91826",
+          "52265716_52620708_504866248",
+          "52265716_52620708_971067133",
+          "52265716_52620708_971102731",
+          "52265716_52620708_971924177",
+          "52265716_52620708_97489"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "089",
+        "name": " Продукты медицинского назначения ",
+        "cnName": "辅助药品",
+        "enName": "health products",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "090",
+        "name": " Профессиональные средства для ухода за полостью рта ",
+        "cnName": "专业口腔护理",
+        "enName": "Professional oral care products",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027489_200001240",
+          "17027489_200001241"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "091",
+        "name": " Спортивное питание ",
+        "cnName": "运动营养",
+        "enName": "Sports nutrition",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_17028704"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "092",
+        "name": " Контактные линзы ",
+        "cnName": "隐形眼镜",
+        "enName": "contact lenses",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "52265716_200001542_93512"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "093",
+        "name": " Реабилитационные инструменты ",
+        "cnName": "康复设备",
+        "enName": "Rehabilitation equipment",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1700,\"fbp_fee\":0.1600,\"fbs_fee\":0.1700,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "095",
+        "name": " Электронные сигареты и запчасти для нагревательных систем ",
+        "cnName": "电子烟及加热系统配件",
+        "enName": "Electronic cigarette and heating system accessories",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.2400,\"fbp_fee\":0.2300,\"fbs_fee\":0.2400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2400,\"fbp_fee\":0.2300,\"fbs_fee\":0.2400,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "200001506"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "094",
+        "name": " Товары для взрослых ",
+        "cnName": "成人用品",
+        "enName": "Adult products",
+        "level": "2",
+        "pid": "004",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2100,\"fbp_fee\":0.2000,\"fbs_fee\":0.2100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027484"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "005",
+    "name": " Быстрые потребительские товары ",
+    "cnName": "快速消费品",
+    "enName": "Fast moving consumer goods",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "097",
+        "name": " Предметы личной гигиены ",
+        "cnName": "个人卫生用品",
+        "enName": "Personal hygiene products",
+        "level": "2",
+        "pid": "005",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027489_200001243"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "096",
+        "name": " Хитрохимические вещества ",
+        "cnName": "日化",
+        "enName": "Daily chemical products",
+        "level": "2",
+        "pid": "005",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "75021418"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "098",
+        "name": " Продовольствие ",
+        "cnName": "食品",
+        "enName": "food",
+        "level": "2",
+        "pid": "005",
+        "fee": "[{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1100,\"fbp_fee\":0.1000,\"fbs_fee\":0.1100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027496"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "099",
+        "name": " Свежие продукты ",
+        "cnName": "新鲜食品",
+        "enName": "Fresh food",
+        "level": "2",
+        "pid": "005",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1350,\"fbp_fee\":0.1250,\"fbs_fee\":0.1350,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1350,\"fbp_fee\":0.1250,\"fbs_fee\":0.1350,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "200001388"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "007",
+    "name": " Товары для животных ",
+    "cnName": "宠物用品",
+    "enName": "Pet supplies",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "108",
+        "name": " Корм для животных и сельскохозяйственные товары ",
+        "cnName": "宠物饲料与农场用品",
+        "enName": "Animal feed and agricultural supplies",
+        "level": "2",
+        "pid": "007",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1300,\"fbp_fee\":0.1200,\"fbs_fee\":0.1300,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1300,\"fbp_fee\":0.1200,\"fbs_fee\":0.1300,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027487_17028670",
+          "17027487_200001282",
+          "88976462",
+          "17027487_17028669",
+          "17027487_200001131",
+          "17027487_200001150",
+          "17027487_200001381",
+          "17027487_89901233"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "109",
+        "name": " Охрана здоровья животных и уход за ними ",
+        "cnName": "宠物卫生与护理",
+        "enName": "Pet hygiene and care",
+        "level": "2",
+        "pid": "007",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1300,\"fbp_fee\":0.1200,\"fbs_fee\":0.1300,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1300,\"fbp_fee\":0.1200,\"fbs_fee\":0.1300,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027487_17028968",
+          "17027487_17028967",
+          "17027487_92310197"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "110",
+        "name": " Одежда для животных, транспорт и товары для прогулок ",
+        "cnName": "宠物服饰、运输与遛狗用品",
+        "enName": "Pet clothing, transportation, and walking supplies",
+        "level": "2",
+        "pid": "007",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027487_17028966",
+          "17027487_17028668"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "111",
+        "name": " Космическая организация животных ",
+        "cnName": "宠物空间整理用品",
+        "enName": "Pet Space Organization",
+        "level": "2",
+        "pid": "007",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1500,\"fbp_fee\":0.1400,\"fbs_fee\":0.1500,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027487_17028672",
+          "17027487_17028673",
+          "17027487_17028674",
+          "17027487_17028969",
+          "17027487_78360021",
+          "17027487_99735335"
+        ],
+        "updateTime": 1754531388,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "006",
+    "name": " Детские товары ",
+    "cnName": "儿童商品",
+    "enName": "Children's products",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "100",
+        "name": " Детская электроника, мебель, аксессуары ",
+        "cnName": "儿童电子产品、家具、配件",
+        "enName": "Children's electronic products, furniture, accessories",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "101",
+        "name": " Детские коляски и автокресла ",
+        "cnName": "婴儿推车和汽车安全座椅",
+        "enName": "Baby strollers and car seats",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.2000,\"fbp_fee\":0.1900,\"fbs_fee\":0.2000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027482_17028942_92740",
+          "17027488_200000323_92962",
+          "17027488_200000323_92963",
+          "17027488_200000323_92964",
+          "17027488_78284142_971014516",
+          "17027491_17029002_970994134"
+        ],
+        "updateTime": 1754531390,
+        "children": null
+      },
+      {
+        "id": "102",
+        "name": " Детская посуда ",
+        "cnName": "儿童餐具",
+        "enName": "Children's tableware",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027488_92413439",
+          "17027488_17028678",
+          "17027488_17028971",
+          "17027488_92413400",
+          "17027488_92417504"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "103",
+        "name": " Здоровье детей ",
+        "cnName": "儿童卫生用品",
+        "enName": "Child Health",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1800,\"fbp_fee\":0.1700,\"fbs_fee\":0.1800,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027488_17028677",
+          "17027488_17028680",
+          "17027488_17028684",
+          "17027488_17028976",
+          "17027488_17028977",
+          "17027488_17028978",
+          "17027488_17028979",
+          "17027488_200000862",
+          "17027488_56253658"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      },
+      {
+        "id": "104",
+        "name": " Детский текстиль ",
+        "cnName": "儿童纺织品",
+        "enName": "Children's textiles",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1900,\"fbp_fee\":0.1800,\"fbs_fee\":0.1900,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1900,\"fbp_fee\":0.1800,\"fbs_fee\":0.1900,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027488_17028676"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "105",
+        "name": " Детские спортивные товары ",
+        "cnName": "儿童运动用品",
+        "enName": "Children's sports products",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027488_17028681",
+          "17027488_17028683",
+          "17027488_17028970",
+          "17027488_200000323",
+          "17027488_78284142",
+          "17027488_87878999",
+          "17027488_92496473"
+        ],
+        "updateTime": 1754531392,
+        "children": null
+      },
+      {
+        "id": "106",
+        "name": " Игрушки ",
+        "cnName": "玩具",
+        "enName": "Toys",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1750,\"fbp_fee\":0.1650,\"fbs_fee\":0.1750,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027488_17028974",
+          "17027488_17028973",
+          "17027488_17028981",
+          "17027488_62573858",
+          "17027488_17028675",
+          "17027488_17028685",
+          "17027488_17028686",
+          "17027488_17028972",
+          "17027488_17028975",
+          "17027488_17028980",
+          "17027488_63444126"
+        ],
+        "updateTime": 1754531394,
+        "children": null
+      },
+      {
+        "id": "107",
+        "name": " Хобби, творчество и канцелярские принадлежности ",
+        "cnName": "兴趣、创意与文具",
+        "enName": "Hobbies, creations, and stationery",
+        "level": "2",
+        "pid": "006",
+        "fee": "[{\"fbo_fee\":0.1200,\"fbp_fee\":0.1100,\"fbs_fee\":0.1200,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1400,\"fbp_fee\":0.1300,\"fbs_fee\":0.1400,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1600,\"fbp_fee\":0.1500,\"fbs_fee\":0.1600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027492",
+          "17027485",
+          "17027490_17028993",
+          "17027490_17028994"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "008",
+    "name": " Благотворительность ",
+    "cnName": "慈善",
+    "enName": "charitable",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "117",
+        "name": "Товары",
+        "cnName": "商品",
+        "enName": "Goods",
+        "level": "2",
+        "pid": "008",
+        "fee": "[{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "200001160"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      },
+      {
+        "id": "119",
+        "name": "Сертификат",
+        "cnName": "证书",
+        "enName": "certificate",
+        "level": "2",
+        "pid": "008",
+        "fee": "[{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0100,\"fbp_fee\":0.0100,\"fbs_fee\":0.0100,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "200001160_200001196_970680513"
+        ],
+        "updateTime": 1754531393,
+        "children": null
+      }
+    ]
+  },
+  {
+    "id": "009",
+    "name": " Прочее ",
+    "cnName": "其他",
+    "enName": "other",
+    "level": "1",
+    "pid": "0",
+    "fee": null,
+    "deliveredPercent": null,
+    "numberInPosting": null,
+    "localCategoryIds": null,
+    "updateTime": 1749096216,
+    "children": [
+      {
+        "id": "114",
+        "name": " Купоны продавца. ",
+        "cnName": "卖家礼品卡",
+        "enName": "Seller's gift voucher",
+        "level": "2",
+        "pid": "009",
+        "fee": "[{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0600,\"fbp_fee\":0.0500,\"fbs_fee\":0.0600,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": null,
+        "updateTime": 1754531388,
+        "children": null
+      },
+      {
+        "id": "115",
+        "name": " Мешки ",
+        "cnName": "包装袋",
+        "enName": "Bag",
+        "level": "2",
+        "pid": "009",
+        "fee": "[{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":1500,\"min\":0},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.1000,\"fbp_fee\":0.0900,\"fbs_fee\":0.1000,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027485_17028963_971303508",
+          "17027492_17154182_713080978",
+          "17027492_17154182_970788192",
+          "17027494_17027933_970942192",
+          "17027494_17027933_971096037",
+          "17027494_200001378_970788192"
+        ],
+        "updateTime": 1754531391,
+        "children": null
+      },
+      {
+        "id": "116",
+        "name": " Туризм",
+        "cnName": "旅游",
+        "enName": "Travel",
+        "level": "2",
+        "pid": "009",
+        "fee": "[{\"fbo_fee\":0.0160,\"fbp_fee\":0.0060,\"fbs_fee\":0.0160,\"max\":1500,\"min\":0},{\"fbo_fee\":0.0160,\"fbp_fee\":0.0060,\"fbs_fee\":0.0160,\"max\":5000,\"min\":1500},{\"fbo_fee\":0.0160,\"fbp_fee\":0.0060,\"fbs_fee\":0.0160,\"max\":null,\"min\":5000}]",
+        "deliveredPercent": 95,
+        "numberInPosting": 1.2,
+        "localCategoryIds": [
+          "17027491_17028689",
+          "17027491_17028698",
+          "17027491_17029008_971058483",
+          "17027491_17029005_94449",
+          "17027491_17029005_94450",
+          "17027491_17029005_94453",
+          "17027491_17029005_970856360",
+          "17027491_17029005_971036157",
+          "17027491_17029005_971289485",
+          "17027491_17029005_98475",
+          "17027491_17029008_94461",
+          "17027491_17029005_630154639",
+          "17027491_17029008_971278588",
+          "17027491_17029008_971278589",
+          "17027491_17029010_93526",
+          "17027491_77119630_970701552",
+          "17027491_77119630_971439216",
+          "200001160_200001220_94423",
+          "17027491_17029005_94446",
+          "15621031_200001520_970966931",
+          "17027491_17029002_971219123",
+          "17027491_17029002_95079",
+          "17027491_17028998_93535",
+          "17027491_17028711_970987219",
+          "15621042_17028928_91285",
+          "15621031_200001520_971104642",
+          "17027491_17028996",
+          "17027493_17027904_93336",
+          "200001160_200001166_95470",
+          "200001160_200001166_94017",
+          "200001160_200001166_93332",
+          "17027494_17027931_94600",
+          "17027493_17027904_970860497",
+          "17027493_17027904_95470",
+          "17027493_17027904_94307",
+          "17027493_17027904_94035",
+          "17027493_17027904_94024",
+          "17027493_17027904_94021",
+          "17027493_17027904_94017",
+          "15621042_17028643_91789",
+          "17027493_17027904_93332",
+          "17027491_77119630_94303",
+          "17027491_17029008_94458",
+          "17027491_17029005_971425773",
+          "17027491_17029005_970856359",
+          "17027491_17029002_95076",
+          "17027491_17028688_240774473"
+        ],
+        "updateTime": 1754531389,
+        "children": null
+      }
+    ]
+  }
+]

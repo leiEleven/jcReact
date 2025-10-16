@@ -1,0 +1,790 @@
+// Ozon定价计算器样式
+.ozon-calculator {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  .calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e0e0e0;
+
+    .titleName {
+      margin: 0;
+      color: #ff0050;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+      .mode-toggle {
+        padding: 8px 16px;
+        border: 2px solid #ff0050;
+        border-radius: 6px;
+        background: white;
+        color: #ff0050;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+          background: #ff0050;
+          color: white;
+        }
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 8px rgba(255, 0, 80, 0.2);
+        }
+      }
+
+      .reset-btn {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #5a6268;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  .calculator-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  // 通用卡片样式
+  .section-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8e8e8;
+
+    .section-title {
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 18px;
+      font-weight: 700;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+  }
+
+  // 汇率部分样式
+  .rate-display {
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .rate-input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .rate-input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #dcdfe6;
+        border-radius: 6px 0 0 6px;
+        background-color: #f8f9fa;
+        font-size: 14px;
+        color: #606266;
+      }
+
+      .refresh-btn, .exchange-converter-btn {
+        padding: 12px 16px;
+        background-color: #f0f0f0;
+        border: 1px solid #dcdfe6;
+        border-left: none;
+        cursor: pointer;
+        color: #606266;
+        transition: all 0.3s ease;
+        font-size: 16px;
+
+        &:hover:not(:disabled) {
+          background-color: #ff0050;
+          color: white;
+          border-color: #ff0050;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+
+      .exchange-converter-btn {
+        border-radius: 0 6px 6px 0;
+      }
+    }
+
+    .rate-info {
+      margin-top: 8px;
+      color: #666;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  }
+
+  // 利润信息部分
+  .profit-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    .profit-method-selector {
+      label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 500;
+          color: #333;
+          cursor: pointer;
+          margin: 0;
+          padding: 8px 12px;
+          border-radius: 6px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #f8f9fa;
+          }
+
+          input[type="radio"] {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .profit-value-input {
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .profit-input-field {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dcdfe6;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #333;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #ff0050;
+          box-shadow: 0 0 0 2px rgba(255, 0, 80, 0.1);
+        }
+      }
+
+      .currency-conversion {
+        display: block;
+        margin-top: 4px;
+        color: #888;
+        font-size: 12px;
+      }
+    }
+  }
+
+  // 商品信息部分
+  .product-price-section {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .price-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dcdfe6;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #333;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #ff0050;
+        box-shadow: 0 0 0 2px rgba(255, 0, 80, 0.1);
+      }
+    }
+  }
+
+  .product-category-section {
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .category-selectors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+
+      .category-selector {
+        .category-dropdown {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #dcdfe6;
+          border-radius: 6px;
+          background-color: white;
+          font-size: 14px;
+          color: #606266;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #ff0050;
+            box-shadow: 0 0 0 2px rgba(255, 0, 80, 0.1);
+          }
+
+          &:disabled {
+            background-color: #f8f9fa;
+            color: #999;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+
+  // 佣金信息展示
+  .commission-info {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #ff0050;
+
+    h5 {
+      margin: 0 0 16px 0;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .current-commission {
+      margin-bottom: 20px;
+
+      .commission-tier {
+        margin-bottom: 12px;
+
+        .tier-range {
+          font-weight: 600;
+          color: #ff0050;
+          font-size: 14px;
+        }
+      }
+
+      .commission-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        .commission-item {
+          background: white;
+          padding: 12px;
+          border-radius: 6px;
+          border: 1px solid #e0e0e0;
+
+          .commission-label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+          }
+
+          .commission-value {
+            font-weight: 600;
+            color: #ff0050;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .all-commission-tiers {
+      h6 {
+        margin: 0 0 12px 0;
+        color: #555;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .tier-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+
+        &.current-tier {
+          background: #fff8e6;
+          border-color: #ffd700;
+        }
+
+        .tier-range {
+          font-weight: 500;
+          color: #333;
+          font-size: 13px;
+        }
+
+        .tier-rates {
+          font-size: 12px;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  // 成本信息部分
+  .cost-inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    .cost-input {
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+      }
+
+      &.result {
+        .cost-input-field {
+          background-color: #f0fff4;
+          border-color: #28a745;
+        }
+      }
+
+      .currency-input-container {
+        position: relative;
+
+        .cost-input-field {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #dcdfe6;
+          border-radius: 6px;
+          font-size: 14px;
+          color: #333;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #ff0050;
+            box-shadow: 0 0 0 2px rgba(255, 0, 80, 0.1);
+          }
+
+          &:read-only {
+            background-color: #f8f9fa;
+            color: #666;
+          }
+        }
+
+        .currency-conversion {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 12px;
+          color: #888;
+          background: #f8f8f8;
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  // 计算按钮和结果部分
+  .calculation-section {
+    text-align: center;
+
+    .calculate-btn {
+      background: linear-gradient(135deg, #ff0050, #ff3373);
+      color: white;
+      border: none;
+      padding: 16px 48px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 0, 80, 0.3);
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 0, 80, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  // 计算结果样式
+  .calculation-result {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e8e8e8;
+    
+    h4 {
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 16px;
+    }
+  }
+
+  .calculation-method {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff0050;
+    
+    small {
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+  }
+
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    
+    &.highlighted {
+      background: linear-gradient(135deg, #fff8e6, #fff0cc);
+      margin: 0 -24px;
+      padding: 20px 24px;
+      border-bottom: 2px solid #ffd700;
+      border-radius: 8px;
+      
+      .result-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ff0050;
+      }
+    }
+  }
+
+  .result-value {
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .cny-conversion {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+    font-weight: normal;
+  }
+
+  .result-details {
+    margin-top: 24px;
+  }
+
+  .detail-section-header {
+    font-weight: 700;
+    margin: 24px 0 16px 0;
+    color: #555;
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .detail-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #f0f0f0;
+    }
+    
+    &.negative {
+      background: #fff5f5;
+      .dual-currency {
+        color: #dc3545;
+      }
+    }
+    
+    &.positive {
+      background: #f0fff4;
+      .dual-currency {
+        color: #28a745;
+      }
+    }
+    
+    &.total {
+      background: #e3f2fd;
+      font-weight: 600;
+      border: 1px solid #bbdefb;
+    }
+    
+    &.final-profit {
+      background: linear-gradient(135deg, #e3f2fd, #f0fff4);
+      border: 2px solid #4caf50;
+      margin-top: 20px;
+    }
+  }
+
+  .detail-label {
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .dual-currency {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .profit-positive {
+    color: #28a745;
+    font-weight: 700;
+  }
+
+  .profit-negative {
+    color: #dc3545;
+    font-weight: 700;
+  }
+
+  .final-results {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+  }
+
+  .profit-comparison {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .comparison-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+    
+    .comparison-label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .calculator-header {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+
+      .header-controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    .profit-settings {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .category-selectors {
+      grid-template-columns: 1fr !important;
+    }
+
+    .cost-inputs-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .commission-details {
+      grid-template-columns: 1fr !important;
+    }
+
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .detail-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .dual-currency {
+      align-items: flex-start;
+    }
+
+    .result-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      
+      .result-value {
+        align-items: flex-start;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-card {
+      padding: 16px;
+    }
+
+    .calculator-header .titleName {
+      font-size: 20px;
+    }
+
+    .calculate-btn {
+      width: 100%;
+      padding: 14px 24px;
+    }
+  }
+}
+
+// 全局输入框和选择框样式优化
+input[type="number"], input[type="text"], select {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  -moz-appearance: textfield;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// 滚动条样式优化
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

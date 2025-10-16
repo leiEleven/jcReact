@@ -4,6 +4,7 @@ import './index.less';
 // 支持的主要货币
 const CURRENCIES = [
   { code: 'CNY', name: '人民币', symbol: '¥' },
+  { code: 'RUB', name: '俄罗斯卢布', symbol: '₽' }, // 新增卢布
   { code: 'USD', name: '美元', symbol: '$' },
   { code: 'EUR', name: '欧元', symbol: '€' },
   { code: 'GBP', name: '英镑', symbol: '£' },
@@ -17,6 +18,7 @@ const CURRENCIES = [
   { code: 'PHP', name: '菲律宾比索', symbol: '₱' },
   { code: 'MYR', name: '马来西亚林吉特', symbol: 'RM' },
   { code: 'MXN', name: '墨西哥比索', symbol: '$' }
+
 ];
 
 const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', initialToCurrency = 'USD' }) => {
@@ -29,75 +31,94 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
   const [lastUpdated, setLastUpdated] = useState('');
   const [error, setError] = useState('');
 
-  // 获取汇率 - 使用useCallback避免不必要的重新创建
-  const fetchExchangeRate = useCallback(async (from, to) => {
-    if (from === to) {
-      setExchangeRate(1);
-      setToAmount(fromAmount);
-      setError('');
-      return;
-    }
-
-    setIsLoading(true);
+// 获取汇率 - 使用useCallback避免不必要的重新创建
+// 获取汇率 - 使用useCallback避免不必要的重新创建
+const fetchExchangeRate = useCallback(async (from, to) => {
+  if (from === to) {
+    setExchangeRate(1);
+    setToAmount(fromAmount);
     setError('');
+    return;
+  }
+
+  setIsLoading(true);
+  setError('');
+  
+  try {
+    // 使用可靠的汇率API
+    const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
     
-    try {
-      // 使用更可靠的汇率API
-      const response = await fetch(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}`);
-      
-      if (!response.ok) throw new Error('汇率查询失败');
-      
-      const data = await response.json();
-      
-      if (!data.success) {
-        throw new Error( '汇率查询失败');
-      }
-      
-      const rate = data.rates[to];
-      
-      if (!rate) {
-        throw new Error(`无法获取 ${from} 到 ${to} 的汇率`);
-      }
-      
-      setExchangeRate(rate);
-      setLastUpdated(new Date().toLocaleString());
-      
-      // 自动计算转换金额
-      if (fromAmount && !isNaN(fromAmount)) {
-        setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
-      }
-    } catch (error) {
-      console.error('获取汇率失败:', error);
-      setError(error.message);
-      
-      // 使用默认汇率（这里可以设置一些常用货币对的默认汇率）
-      const defaultRates = {
-        'CNY-USD': 0.14,
-        'CNY-EUR': 0.13,
-        'CNY-GBP': 0.11,
-        'CNY-JPY': 15.5,
-        'CNY-BRL': 0.75,
-        'USD-CNY': 7.14,
-        'EUR-CNY': 7.69,
-        'GBP-CNY': 9.09,
-        'JPY-CNY': 0.065,
-        'BRL-CNY': 1.33,
-        'USD-JPY': 110.5, // 新增美元对日元
-        'JPY-USD': 0.0091, // 新增日元对美元
-      };
-      
-      const rateKey = `${from}-${to}`;
-      const rate = defaultRates[rateKey] || 1;
-      setExchangeRate(rate);
-      setLastUpdated('本地缓存 ' + new Date().toLocaleString());
-      
-      if (fromAmount && !isNaN(fromAmount)) {
-        setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
-      }
-    } finally {
-      setIsLoading(false);
+    if (!response.ok) throw new Error('汇率查询失败');
+    
+    const data = await response.json();
+    
+    const rate = data.rates[to];
+    
+    if (!rate) {
+      throw new Error(`无法获取 ${from} 到 ${to} 的汇率`);
     }
-  }, [fromAmount]);
+    
+    setExchangeRate(rate);
+    setLastUpdated(new Date().toLocaleString());
+    
+    // 自动计算转换金额
+    if (fromAmount && !isNaN(fromAmount)) {
+      setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
+    }
+  } catch (error) {
+    console.error('获取汇率失败:', error);
+    setError('网络连接失败，使用默认汇率进行计算');
+    
+    // 使用默认汇率
+    const defaultRates = {
+      'CNY-USD': 0.14,
+      'CNY-EUR': 0.13,
+      'CNY-GBP': 0.11,
+      'CNY-JPY': 15.5,
+      'CNY-BRL': 0.75,
+      'CNY-RUB': 12.5,
+      'CNY-KRW': 190,
+      'CNY-THB': 5.0,
+      'CNY-IDR': 2200,
+      'CNY-SGD': 0.19,
+      'CNY-VND': 3400,
+      'CNY-PHP': 8.0,
+      'CNY-MYR': 0.65,
+      'CNY-MXN': 2.5,
+      'USD-CNY': 7.14,
+      'EUR-CNY': 7.69,
+      'GBP-CNY': 9.09,
+      'JPY-CNY': 0.065,
+      'BRL-CNY': 1.33,
+      'RUB-CNY': 0.08,
+      'KRW-CNY': 0.0053,
+      'THB-CNY': 0.20,
+      'IDR-CNY': 0.00045,
+      'SGD-CNY': 5.26,
+      'VND-CNY': 0.00029,
+      'PHP-CNY': 0.125,
+      'MYR-CNY': 1.54,
+      'MXN-CNY': 0.40,
+      'USD-JPY': 110.5,
+      'JPY-USD': 0.0091,
+      'USD-RUB': 89.5,
+      'RUB-USD': 0.0112,
+      'USD-EUR': 0.93,
+      'EUR-USD': 1.08
+    };
+    
+    const rateKey = `${from}-${to}`;
+    const rate = defaultRates[rateKey] || 1;
+    setExchangeRate(rate);
+    setLastUpdated('本地缓存 ' + new Date().toLocaleString());
+    
+    if (fromAmount && !isNaN(fromAmount)) {
+      setToAmount((parseFloat(fromAmount) * rate).toFixed(4));
+    }
+  } finally {
+    setIsLoading(false);
+  }
+}, [fromAmount]);
 
   // 处理货币选择变化
   const handleFromCurrencyChange = (e) => {
@@ -241,12 +262,12 @@ const ExchangeRateConverter = ({ isOpen, onClose, initialFromCurrency = 'CNY', i
             <h4>常用转换</h4>
             <div className="common-rates">
               {[
+                { from: 'CNY', to: 'RUB', label: '人民币 → 卢布' },
+                { from: 'RUB', to: 'CNY', label: '卢布 → 人民币' },
                 { from: 'CNY', to: 'USD', label: '人民币 → 美元' },
                 { from: 'USD', to: 'CNY', label: '美元 → 人民币' },
-                { from: 'CNY', to: 'EUR', label: '人民币 → 欧元' },
                 { from: 'CNY', to: 'JPY', label: '人民币 → 日元' },
-                { from: 'USD', to: 'JPY', label: '美元 → 日元' },
-                { from: 'JPY', to: 'USD', label: '日元 → 美元' }
+                { from: 'JPY', to: 'CNY', label: '日元 → 人民币' }
               ].map((pair, index) => (
                 <button
                   key={index}
