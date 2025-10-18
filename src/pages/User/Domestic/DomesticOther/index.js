@@ -28,7 +28,7 @@ class OzonPricing extends React.Component {
       // 商品成本
       procurementCost: 0, // 采购成本（人民币）
       shippingCost: 0, // 头程运费（人民币）
-      forwardingCost: 0, // 货代费用（人民币）
+      forwardingCost: 2, // 货代费用（人民币）
       tailShippingCost: 0, // 尾程运费（人民币）
       packagingCost: 0, // 包材成本（人民币）
       
@@ -66,7 +66,7 @@ class OzonPricing extends React.Component {
         secondaryCategory: data.secondaryCategory || '',
         procurementCost: data.procurementCost || 0,
         shippingCost: data.shippingCost || 0,
-        forwardingCost: data.forwardingCost || 0,
+        forwardingCost: data.forwardingCost || 2,
         tailShippingCost: data.tailShippingCost || 0,
         packagingCost: data.packagingCost || 0,
         returnRate: data.returnRate || 5,
@@ -445,7 +445,7 @@ class OzonPricing extends React.Component {
       currentFeeTier: null,
       procurementCost: 0,
       shippingCost: 0,
-      forwardingCost: 0,
+      forwardingCost: 2,
       tailShippingCost: 0,
       packagingCost: 0,
       returnRate: 5,
