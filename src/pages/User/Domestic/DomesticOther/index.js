@@ -526,65 +526,6 @@ class OzonPricing extends React.Component {
             </div>
           </div>
 
-          {/* 利润信息部分 */}
-          <div className="section-card">
-            <h4 className="section-title">利润信息</h4>
-            <div className="profit-settings">
-              <div className="profit-method-selector">
-                <label>利润计算方式</label>
-                <div className="radio-group">
-                  <label>
-                    <input
-                      type="radio"
-                      value="cost"
-                      checked={profitMethod === 'cost'}
-                      onChange={this.handleProfitMethodChange}
-                    />
-                    总成本利润率
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      value="price"
-                      checked={profitMethod === 'price'}
-                      onChange={this.handleProfitMethodChange}
-                    />
-                    售价利润率
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      value="fixed"
-                      checked={profitMethod === 'fixed'}
-                      onChange={this.handleProfitMethodChange}
-                    />
-                    固定利润
-                  </label>
-                </div>
-              </div>
-
-              <div className="profit-value-input">
-                <label>
-                  {profitMethod === 'fixed' ? '固定利润金额' : '利润率'}
-                  ({profitMethod === 'fixed' ? 'CNY' : '%'})
-                </label>
-                <input
-                  type="number"
-                  value={profitValue}
-                  onChange={this.handleProfitValueChange}
-                  min="0"
-                  step={profitMethod === 'fixed' ? "0.01" : "0.1"}
-                  className="profit-input-field"
-                />
-                {profitMethod === 'fixed' && (
-                  <span className="currency-conversion">
-                    ≈ {(profitValue * exchangeRate).toFixed(2)} RUB
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-
           {/* 商品信息部分 */}
           <div className="section-card">
             <h4 className="section-title">商品信息</h4>
@@ -830,6 +771,64 @@ class OzonPricing extends React.Component {
                     placeholder="折扣率"
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+                    {/* 利润信息部分 */}
+          <div className="section-card">
+            <h4 className="section-title">利润信息</h4>
+            <div className="profit-settings">
+              <div className="profit-method-selector">
+                <label>利润计算方式</label>
+                <div className="radio-group">
+                  <label>
+                    <input
+                      type="radio"
+                      value="cost"
+                      checked={profitMethod === 'cost'}
+                      onChange={this.handleProfitMethodChange}
+                    />
+                    总成本利润率
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="price"
+                      checked={profitMethod === 'price'}
+                      onChange={this.handleProfitMethodChange}
+                    />
+                    售价利润率
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="fixed"
+                      checked={profitMethod === 'fixed'}
+                      onChange={this.handleProfitMethodChange}
+                    />
+                    固定利润
+                  </label>
+                </div>
+              </div>
+
+              <div className="profit-value-input">
+                <label>
+                  {profitMethod === 'fixed' ? '固定利润金额' : '利润率'}
+                  ({profitMethod === 'fixed' ? 'CNY' : '%'})
+                </label>
+                <input
+                  type="number"
+                  value={profitValue}
+                  onChange={this.handleProfitValueChange}
+                  min="0"
+                  step={profitMethod === 'fixed' ? "0.01" : "0.1"}
+                  className="profit-input-field"
+                />
+                {profitMethod === 'fixed' && (
+                  <span className="currency-conversion">
+                    ≈ {(profitValue * exchangeRate).toFixed(2)} RUB
+                  </span>
+                )}
               </div>
             </div>
           </div>
