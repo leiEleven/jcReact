@@ -14,10 +14,10 @@ class OzonPricing extends React.Component {
       isLoading: false,
       lastUpdated: '',
       showExchangeModal: false,
-      
+
       // 商品信息
       productPrice: 0,
-      
+
       // 商品类目相关状态
       primaryCategory: '',
       secondaryCategory: '',
@@ -31,12 +31,17 @@ class OzonPricing extends React.Component {
       forwardingCost: 2, // 货代费用（人民币）
       tailShippingCost: 0, // 尾程运费（人民币）
       packagingCost: 0, // 包材成本（人民币）
-      
+
       // 其他费用
       returnRate: 5, // 退货率（百分比）
       discountRate: 0, // 折扣率（百分比）
       withdrawalRate: 1.5, // 提现费率（百分比）
-      
+
+      // 新增的费用字段
+      deliveryServiceRate: 2, // 配送服务费率（百分比）
+      agentServiceRate: 2, // 代理服务费率（百分比）
+      advertisingRate: 0, // 广告费率（百分比）
+
       // 利润计算方式
       profitMethod: 'cost', // 'cost': 总成本利润率, 'price': 售价利润率, 'fixed': 固定利润
       profitValue: 20, // 利润率或固定利润金额
@@ -57,7 +62,7 @@ class OzonPricing extends React.Component {
     const savedData = localStorage.getItem('ozonPricingData');
     if (savedData) {
       const data = JSON.parse(savedData);
-      
+
       this.setState({
         exchangeRate: data.exchangeRate || 12.5,
         lastUpdated: data.lastUpdated || '',
@@ -73,18 +78,22 @@ class OzonPricing extends React.Component {
         discountRate: data.discountRate || 0,
         withdrawalRate: data.withdrawalRate || 1.2,
         profitMethod: data.profitMethod || 'cost',
-        profitValue: data.profitValue || 20
+        profitValue: data.profitValue || 20,
+        // 新增字段的数据加载
+        deliveryServiceRate: data.deliveryServiceRate || 2,
+        agentServiceRate: data.agentServiceRate || 2,
+        advertisingRate: data.advertisingRate || 0,
       }, () => {
         // 如果有主类目，加载二级选项
         if (this.state.primaryCategory) {
           this.loadSecondaryOptions(this.state.primaryCategory);
         }
-        
+
         // 如果有二级类目，加载佣金信息
         if (this.state.secondaryCategory && this.state.secondaryOptions.length > 0) {
           this.loadCommissionInfo(this.state.secondaryCategory);
         }
-        
+
         // 如果没有汇率数据，获取汇率
         if (!data.exchangeRate) {
           this.fetchExchangeRate();
@@ -107,7 +116,7 @@ class OzonPricing extends React.Component {
     this.setState({ isLoading: true });
     try {
       const response = await fetch(`https://api.exchangerate-api.com/v4/latest/CNY`);
-      
+
       if (!response.ok) throw new Error('汇率查询失败');
 
       const data = await response.json();
@@ -213,7 +222,7 @@ class OzonPricing extends React.Component {
   }
 
   // ===== 事件处理函数 =====
-  
+
   // 商品售价变化
   handlePriceChange = (e) => {
     const price = parseFloat(e.target.value) || 0;
@@ -226,13 +235,13 @@ class OzonPricing extends React.Component {
   // 一级类目变化
   handlePrimaryCategoryChange = (e) => {
     const selectedPrimary = e.target.value;
-    this.setState({ 
+    this.setState({
       primaryCategory: selectedPrimary,
       secondaryCategory: '',
       commissionInfo: null,
       currentFeeTier: null
     }, () => {
-      this.saveData({ 
+      this.saveData({
         primaryCategory: selectedPrimary,
         secondaryCategory: ''
       });
@@ -323,6 +332,34 @@ class OzonPricing extends React.Component {
     });
   }
 
+  // 配送服务费率变化
+  handleDeliveryServiceRateChange = (e) => {
+    const rate = parseFloat(e.target.value) || 0;
+    this.setState({ deliveryServiceRate: rate }, () => {
+      this.saveData({ deliveryServiceRate: rate });
+    });
+  }
+
+  // 代理服务费率变化
+  handleAgentServiceRateChange = (e) => {
+    const rate = parseFloat(e.target.value) || 0;
+    this.setState({ agentServiceRate: rate }, () => {
+      this.saveData({ agentServiceRate: rate });
+    });
+  }
+
+  // 广告费率变化
+  handleAdvertisingRateChange = (e) => {
+    const rate = parseFloat(e.target.value) || 0;
+    this.setState({ advertisingRate: rate }, () => {
+      this.saveData({ advertisingRate: rate });
+    });
+  }
+
+
+
+
+  // 定价模式计算
   // ===== 计算函数 =====
 
   // 定价模式计算
@@ -343,7 +380,11 @@ class OzonPricing extends React.Component {
       returnRate,
       discountRate,
       withdrawalRate,
-      exchangeRate
+      exchangeRate,
+      // 新增的费用字段
+      deliveryServiceRate,
+      agentServiceRate,
+      advertisingRate
     } = this.state;
 
     const rfbsCommissionRate = this.state.currentFeeTier.fbs_fee;
@@ -353,12 +394,18 @@ class OzonPricing extends React.Component {
     const totalCostRUB = totalCostCNY * exchangeRate;
 
     // 费率转换
+    const deliveryServiceRateValue = deliveryServiceRate / 100;
+    const agentServiceRateValue = agentServiceRate / 100;
+    const advertisingRateValue = advertisingRate / 100;
     const returnRateValue = returnRate / 100;
     const discountRateValue = discountRate / 100;
     const withdrawalRateValue = withdrawalRate / 100;
 
-    // 平台收入比例（扣除佣金后）
-    const platformRevenueRate = 1 - rfbsCommissionRate;
+    // 总附加费用率
+    const totalAdditionalFeeRate = deliveryServiceRateValue + agentServiceRateValue + advertisingRateValue;
+
+    // 平台收入比例（扣除佣金和附加费用后）
+    const platformRevenueRate = 1 - rfbsCommissionRate - totalAdditionalFeeRate;
 
     let requiredRevenue = 0;
     let calculationMethod = '';
@@ -367,45 +414,48 @@ class OzonPricing extends React.Component {
     if (profitMethod === 'price') {
       // 售价利润率法
       const profitMargin = profitValue / 100;
-      // 公式：售价×(1-折扣率)×(1-利润率-手续费率-退货率-提现费率) = 成本
-      requiredRevenue = totalCostRUB / 
-        ((1 - discountRateValue) * (1 - profitMargin - rfbsCommissionRate - returnRateValue - withdrawalRateValue));
-      calculationMethod = `售价 = 总成本 / [(1 - ${discountRate}%折扣率) × (1 - ${profitValue}%利润率 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
+      // 公式：售价×(1-折扣率)×(1-利润率-佣金率-附加费用率-退货率-提现费率) = 成本
+      requiredRevenue = totalCostRUB /
+        ((1 - discountRateValue) * (1 - profitMargin - rfbsCommissionRate - totalAdditionalFeeRate - returnRateValue - withdrawalRateValue));
+      calculationMethod = `售价 = 总成本 / [(1 - ${discountRate}%折扣率) × (1 - ${profitValue}%利润率 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${(totalAdditionalFeeRate * 100).toFixed(2)}%其他费率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
     }
     else if (profitMethod === 'cost') {
       // 总成本利润率法
       const profitMargin = profitValue / 100;
-      // 公式：售价×(1-折扣率)×(1-手续费率-退货率-提现费率) = 成本×(1+利润率)
-      requiredRevenue = (totalCostRUB * (1 + profitMargin)) / 
-        ((1 - discountRateValue) * (1 - rfbsCommissionRate - returnRateValue - withdrawalRateValue));
-      calculationMethod = `售价 = [总成本 × (1 + ${profitValue}%利润率)] / [(1 - ${discountRate}%折扣率) × (1 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
+      // 公式：售价×(1-折扣率)×(1-佣金率-附加费用率-退货率-提现费率) = 成本×(1+利润率)
+      requiredRevenue = (totalCostRUB * (1 + profitMargin)) /
+        ((1 - discountRateValue) * (1 - rfbsCommissionRate - totalAdditionalFeeRate - returnRateValue - withdrawalRateValue));
+      calculationMethod = `售价 = [总成本 × (1 + ${profitValue}%利润率)] / [(1 - ${discountRate}%折扣率) × (1 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${(totalAdditionalFeeRate * 100).toFixed(2)}%其他费率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
     }
     else if (profitMethod === 'fixed') {
       // 固定利润法
       const fixedProfit = profitValue * exchangeRate; // 转换为卢布
-      // 公式：售价×(1-折扣率)×(1-手续费率-退货率-提现费率) = 成本 + 固定利润
-      requiredRevenue = (totalCostRUB + fixedProfit) / 
-        ((1 - discountRateValue) * (1 - rfbsCommissionRate - returnRateValue - withdrawalRateValue));
-      calculationMethod = `售价 = (总成本 + ${profitValue} CNY固定利润) / [(1 - ${discountRate}%折扣率) × (1 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
+      // 公式：售价×(1-折扣率)×(1-佣金率-附加费用率-退货率-提现费率) = 成本 + 固定利润
+      requiredRevenue = (totalCostRUB + fixedProfit) /
+        ((1 - discountRateValue) * (1 - rfbsCommissionRate - totalAdditionalFeeRate - returnRateValue - withdrawalRateValue));
+      calculationMethod = `售价 = (总成本 + ${profitValue} CNY固定利润) / [(1 - ${discountRate}%折扣率) × (1 - ${(rfbsCommissionRate * 100).toFixed(2)}%佣金率 - ${(totalAdditionalFeeRate * 100).toFixed(2)}%其他费率 - ${returnRate}%退货率 - ${withdrawalRate}%提现费率)]`;
     }
 
     // 计算各项费用
     const discountAmount = requiredRevenue * discountRateValue;
     const revenueAfterDiscount = requiredRevenue - discountAmount;
-    
+
     const rfbsCommission = revenueAfterDiscount * rfbsCommissionRate;
-    const platformRevenue = revenueAfterDiscount - rfbsCommission;
-    
+    const deliveryServiceFee = revenueAfterDiscount * deliveryServiceRateValue;
+    const agentServiceFee = revenueAfterDiscount * agentServiceRateValue;
+    const advertisingFee = revenueAfterDiscount * advertisingRateValue;
+    const platformRevenue = revenueAfterDiscount - rfbsCommission - deliveryServiceFee - agentServiceFee - advertisingFee;
+
     const returnLoss = revenueAfterDiscount * returnRateValue;
     const revenueAfterReturn = platformRevenue * (1 - returnRateValue);
-    
+
     const withdrawalFee = revenueAfterReturn * withdrawalRateValue;
     const finalActualReceipt = revenueAfterReturn - withdrawalFee;
 
     // 计算实际利润
     const actualProfit = finalActualReceipt - totalCostRUB;
-    const actualProfitMargin = (actualProfit / totalCostRUB) * 100;
-    const sellingProfitMargin = (actualProfit / requiredRevenue) * 100;
+    const actualProfitMargin = totalCostRUB > 0 ? (actualProfit / totalCostRUB) * 100 : 0;
+    const sellingProfitMargin = requiredRevenue > 0 ? (actualProfit / requiredRevenue) * 100 : 0;
 
     // 设置结果
     this.setState({
@@ -417,6 +467,9 @@ class OzonPricing extends React.Component {
         discountAmount,
         revenueAfterDiscount,
         rfbsCommission,
+        deliveryServiceFee,
+        agentServiceFee,
+        advertisingFee,
         platformRevenue,
         returnLoss,
         revenueAfterReturn,
@@ -432,7 +485,6 @@ class OzonPricing extends React.Component {
       }
     });
   }
-
   // 重置数据
   resetAllData = () => {
     this.setState({
@@ -454,6 +506,9 @@ class OzonPricing extends React.Component {
       profitMethod: 'cost',
       profitValue: 20,
       calculatedPrice: 0,
+      deliveryServiceRate: 2,
+      agentServiceRate: 2,
+      advertisingRate: 0,
       calculationDetails: null
     }, () => {
       localStorage.removeItem('ozonPricingData');
@@ -462,10 +517,10 @@ class OzonPricing extends React.Component {
   }
 
   render() {
-    const { 
-      isLoading, 
-      lastUpdated, 
-      calculatedPrice, 
+    const {
+      isLoading,
+      lastUpdated,
+      calculatedPrice,
       calculationDetails,
       productPrice,
       primaryCategory,
@@ -529,7 +584,7 @@ class OzonPricing extends React.Component {
           {/* 商品信息部分 */}
           <div className="section-card">
             <h4 className="section-title">商品信息</h4>
-            
+
             {/* 商品售价输入 */}
             <div className="product-price-section">
               <label>商品售价 (RUB)</label>
@@ -707,7 +762,7 @@ class OzonPricing extends React.Component {
                   </span>
                 </div>
               </div>
-              
+
               <div className="cost-input">
                 <label>尾程运费 (CNY)</label>
                 <div className="currency-input-container">
@@ -725,7 +780,7 @@ class OzonPricing extends React.Component {
                   </span>
                 </div>
               </div>
-              
+
               <div className="cost-input">
                 <label>提现费率 (%)</label>
                 <div className="currency-input-container">
@@ -740,7 +795,7 @@ class OzonPricing extends React.Component {
                   />
                 </div>
               </div>
-              
+
               <div className="cost-input">
                 <label>退货率 (%)</label>
                 <div className="currency-input-container">
@@ -756,7 +811,7 @@ class OzonPricing extends React.Component {
                   />
                 </div>
               </div>
-              
+
               <div className="cost-input">
                 <label>折扣率 (%)</label>
                 <div className="currency-input-container">
@@ -772,9 +827,60 @@ class OzonPricing extends React.Component {
                   />
                 </div>
               </div>
+
+              <div className="cost-input">
+                <label>配送服务费率 (%)</label>
+                <div className="currency-input-container">
+                  <input
+                    type="number"
+                    value={this.state.deliveryServiceRate}
+                    onChange={this.handleDeliveryServiceRateChange}
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    className="cost-input-field"
+                    placeholder="配送服务费率"
+                  />
+                </div>
+              </div>
+
+              <div className="cost-input">
+                <label>代理服务费率 (%)</label>
+                <div className="currency-input-container">
+                  <input
+                    type="number"
+                    value={this.state.agentServiceRate}
+                    onChange={this.handleAgentServiceRateChange}
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    className="cost-input-field"
+                    placeholder="代理服务费率"
+                  />
+                </div>
+              </div>
+
+              <div className="cost-input">
+                <label>广告费率 (%)</label>
+                <div className="currency-input-container">
+                  <input
+                    type="number"
+                    value={this.state.advertisingRate}
+                    onChange={this.handleAdvertisingRateChange}
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    className="cost-input-field"
+                    placeholder="广告费率"
+                  />
+                </div>
+              </div>
+
+
+
             </div>
           </div>
-                    {/* 利润信息部分 */}
+          {/* 利润信息部分 */}
           <div className="section-card">
             <h4 className="section-title">利润信息</h4>
             <div className="profit-settings">
@@ -842,7 +948,7 @@ class OzonPricing extends React.Component {
             >
               计算定价
             </button>
-            
+
             {calculationDetails && (
               <div className="calculation-result">
                 <h4>
@@ -855,7 +961,7 @@ class OzonPricing extends React.Component {
                     <small>{calculationDetails.calculationMethod}</small>
                   </div>
                 )}
-                
+
                 {/* 定价结果 */}
                 <div className="result-item highlighted">
                   <span>建议售价:</span>
@@ -880,7 +986,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item negative">
                       <span className="detail-label">折扣金额 ({this.state.discountRate}%):</span>
                       <span className="dual-currency">
@@ -890,7 +996,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item positive">
                       <span className="detail-label">折扣后实际收入:</span>
                       <span className="dual-currency">
@@ -908,7 +1014,7 @@ class OzonPricing extends React.Component {
                     <div className="detail-item negative">
                       <span className="detail-label">
                         rFBS佣金 (
-                        {this.state.currentFeeTier && this.state.currentFeeTier.fbs_fee 
+                        {this.state.currentFeeTier && this.state.currentFeeTier.fbs_fee
                           ? (this.state.currentFeeTier.fbs_fee * 100).toFixed(2)
                           : '0.00'
                         }%):
@@ -920,7 +1026,33 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+                    <div className="detail-item negative">
+                      <span className="detail-label">配送服务费 ({this.state.deliveryServiceRate}%):</span>
+                      <span className="dual-currency">
+                        -{calculationDetails.deliveryServiceFee.toFixed(2)} RUB
+                        <span className="cny-conversion">
+                          / -{(calculationDetails.deliveryServiceFee / exchangeRate).toFixed(2)} CNY
+                        </span>
+                      </span>
+                    </div>
+                    <div className="detail-item negative">
+                      <span className="detail-label">代理服务费 ({this.state.agentServiceRate}%):</span>
+                      <span className="dual-currency">
+                        -{calculationDetails.agentServiceFee.toFixed(2)} RUB
+                        <span className="cny-conversion">
+                          / -{(calculationDetails.agentServiceFee / exchangeRate).toFixed(2)} CNY
+                        </span>
+                      </span>
+                    </div>
+                    <div className="detail-item negative">
+                      <span className="detail-label">广告费 ({this.state.advertisingRate}%):</span>
+                      <span className="dual-currency">
+                        -{calculationDetails.advertisingFee.toFixed(2)} RUB
+                        <span className="cny-conversion">
+                          / -{(calculationDetails.advertisingFee / exchangeRate).toFixed(2)} CNY
+                        </span>
+                      </span>
+                    </div>
                     <div className="detail-item positive">
                       <span className="detail-label">平台实际收入:</span>
                       <span className="dual-currency">
@@ -930,6 +1062,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
+
                   </div>
 
                   {/* 退货损失 */}
@@ -944,7 +1077,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item positive">
                       <span className="detail-label">退货后实际收入:</span>
                       <span className="dual-currency">
@@ -956,29 +1089,7 @@ class OzonPricing extends React.Component {
                     </div>
                   </div>
 
-                  {/* 提现费用 */}
-                  <h5 className="detail-section-header">提现费用</h5>
-                  <div className="detail-grid">
-                    <div className="detail-item negative">
-                      <span className="detail-label">提现手续费 ({this.state.withdrawalRate}%):</span>
-                      <span className="dual-currency">
-                        -{calculationDetails.withdrawalFee.toFixed(2)} RUB
-                        <span className="cny-conversion">
-                          / -{(calculationDetails.withdrawalFee / exchangeRate).toFixed(2)} CNY
-                        </span>
-                      </span>
-                    </div>
-                    
-                    <div className="detail-item positive">
-                      <span className="detail-label">最终实际到账:</span>
-                      <span className="dual-currency">
-                        {calculationDetails.finalActualReceipt.toFixed(2)} RUB
-                        <span className="cny-conversion">
-                          / {(calculationDetails.finalActualReceipt / exchangeRate).toFixed(2)} CNY
-                        </span>
-                      </span>
-                    </div>
-                  </div>
+
 
                   {/* 成本明细 */}
                   <h5 className="detail-section-header">成本明细</h5>
@@ -992,7 +1103,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">包材成本:</span>
                       <span className="dual-currency">
@@ -1002,7 +1113,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">货代费用:</span>
                       <span className="dual-currency">
@@ -1012,7 +1123,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">头程运费:</span>
                       <span className="dual-currency">
@@ -1022,7 +1133,7 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">尾程运费:</span>
                       <span className="dual-currency">
@@ -1032,7 +1143,8 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
+
                     <div className="detail-item total">
                       <span className="detail-label">总成本:</span>
                       <span className="dual-currency">
@@ -1043,7 +1155,29 @@ class OzonPricing extends React.Component {
                       </span>
                     </div>
                   </div>
+                  {/* 提现费用 */}
+                  <h5 className="detail-section-header">提现费用</h5>
+                  <div className="detail-grid">
+                    <div className="detail-item negative">
+                      <span className="detail-label">提现手续费 ({this.state.withdrawalRate}%):</span>
+                      <span className="dual-currency">
+                        -{calculationDetails.withdrawalFee.toFixed(2)} RUB
+                        <span className="cny-conversion">
+                          / -{(calculationDetails.withdrawalFee / exchangeRate).toFixed(2)} CNY
+                        </span>
+                      </span>
+                    </div>
 
+                    <div className="detail-item positive">
+                      <span className="detail-label">最终实际到账:</span>
+                      <span className="dual-currency">
+                        {calculationDetails.finalActualReceipt.toFixed(2)} RUB
+                        <span className="cny-conversion">
+                          / {(calculationDetails.finalActualReceipt / exchangeRate).toFixed(2)} CNY
+                        </span>
+                      </span>
+                    </div>
+                  </div>
                   {/* 利润分析 */}
                   <h5 className="detail-section-header">利润分析</h5>
                   <div className="detail-grid">
@@ -1056,17 +1190,17 @@ class OzonPricing extends React.Component {
                         </span>
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">
                         {this.state.profitMethod === 'price' ? '实际售价利润率' :
-                         this.state.profitMethod === 'cost' ? '实际成本利润率' : '实际利润率'}:
+                          this.state.profitMethod === 'cost' ? '实际成本利润率' : '实际利润率'}:
                       </span>
                       <span className={calculationDetails.actualProfitMargin >= 0 ? "profit-positive" : "profit-negative"}>
                         {calculationDetails.actualProfitMargin.toFixed(2)}%
                       </span>
                     </div>
-                    
+
                     <div className="detail-item">
                       <span className="detail-label">售价利润率:</span>
                       <span className={calculationDetails.sellingProfitMargin >= 0 ? "profit-positive" : "profit-negative"}>
